@@ -3,7 +3,7 @@
 	<groupId>com.superanime</groupId>
 	<artifactId>modelo</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>Modelo SuperAnime</name>
+	<name>Modelo-SuperAnime</name>
 	<dependencies>
 		<dependency>
 			<groupId>org.hibernate</groupId>
