@@ -14,8 +14,9 @@
 		<provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
 		
 		<!-- Clases que van a ser persistidas contra la bbdd -->		
-		<class>com.txurdi.persistencia.model.Libro</class>
-		<class>com.txurdi.persistencia.model.Editorial</class>
+		<class>com.superanime.modelo.entity.Anime</class>
+		<class>com.superanime.modelo.entity.Productora</class>
+		<class>com.superanime.modelo.entity.Usuario</class>
 		
 		<properties>
 			<!-- propiedes de conexion de la bbdd -->
