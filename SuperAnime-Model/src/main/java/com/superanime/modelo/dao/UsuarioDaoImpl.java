@@ -37,7 +37,7 @@ public class UsuarioDaoImpl implements UsuarioDao {
 		return usuario;
 	}
 
-	public void deleteUsuario(int id) {
+	public void deleteUsuario(long id) {
 
 		EntityManager em = EntityManagerGestor.crearEntityManager();
 
@@ -67,7 +67,7 @@ public class UsuarioDaoImpl implements UsuarioDao {
 		em.close();
 	}
 
-	public Usuario getUsuarioById(Long id) {
+	public Usuario getUsuarioById(long id) {
 
 		EntityManager em = EntityManagerGestor.crearEntityManager();
 

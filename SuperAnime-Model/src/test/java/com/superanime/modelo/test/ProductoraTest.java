@@ -44,7 +44,7 @@ public class ProductoraTest {
 	public void test() {
 		productoradaoimpl = new ProductoraDaoImpl();
 
-		Productora prueba = new Productora("PRUEBA3", "Ivrea",1);
+		Productora prueba = new Productora("PRUEBA5", "Ivrea",1);
 		productoradaoimpl.addProductora(prueba);
 		// Prueba para probar que la WHERE de validado funciona y que se haya realizado
 		// la insert correctamente y prueba de borrado logico

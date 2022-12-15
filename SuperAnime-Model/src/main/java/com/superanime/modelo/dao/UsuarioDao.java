@@ -10,9 +10,9 @@ public interface UsuarioDao {
 
 	public abstract Usuario addUsuario(Usuario usuario);
 
-	public abstract void deleteUsuario(int id);
+	public abstract void deleteUsuario(long id);
 
 	public abstract void updateUsuario(Usuario usuario);
 
-	public abstract Usuario getUsuarioById(Long id);
+	public abstract Usuario getUsuarioById(long id);
 }
