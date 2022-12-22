@@ -25,7 +25,9 @@ public class ProductoraController {
 	
 	@GetMapping("/productoras")
 	public List<Productora> listAllProductoras() {
-		return productoraServ.listAllProductoras();
+		
+		List<Productora> prod=productoraServ.listAllProductoras();
+		return prod;
 	}
 	
 	@GetMapping("/productoras/{id}")
@@ -50,6 +52,7 @@ public class ProductoraController {
 		p.setDescripcion(productora.getDescripcion());
 		p.setAnimes(productora.getAnimes());
 		p.setActivo(productora.getActivo());
-		return productoraServ.addProductora(p);
+		productoraServ.updateProductora(p);
+		return p;
 	 }	
 }

@@ -4,12 +4,27 @@ import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.EntityManager;
+import javax.persistence.NoResultException;
 import javax.persistence.Query;
 
+import com.superanime.modelo.entity.Productora;
 import com.superanime.modelo.entity.Usuario;
 
 public class UsuarioDaoImpl implements UsuarioDao {
 
+	private static UsuarioDaoImpl INSTANCE = null;
+
+	private UsuarioDaoImpl() {
+		super();
+	}
+
+	public static UsuarioDaoImpl getInstance() {
+		if (INSTANCE == null) {
+			INSTANCE = new UsuarioDaoImpl();
+		}
+		return INSTANCE;
+	}
+	
 	public List<Usuario> listAllUsuarios() {
 
 		EntityManager em = EntityManagerGestor.crearEntityManager();
@@ -29,7 +44,7 @@ public class UsuarioDaoImpl implements UsuarioDao {
 		em.getTransaction().begin();
 
 		em.persist(usuario);
-
+		em.flush();
 		em.getTransaction().commit();
 
 		em.close();
@@ -47,14 +62,15 @@ public class UsuarioDaoImpl implements UsuarioDao {
 		Usuario a = em.find(Usuario.class, id);
 
 		// eliminar
-
-		em.merge(a);
+		if (a != null) {
+			em.remove(a);
+		}
+		//em.merge(a);
 
 		em.getTransaction().commit();
 
 		em.close();
 	}
-
 	public void updateUsuario(Usuario usuario) {
 
 		EntityManager em = EntityManagerGestor.crearEntityManager();
@@ -68,14 +84,18 @@ public class UsuarioDaoImpl implements UsuarioDao {
 	}
 
 	public Usuario getUsuarioById(long id) {
-
+		Usuario usuario;
 		EntityManager em = EntityManagerGestor.crearEntityManager();
 
 		Query query = em.createNamedQuery("find_usuario_by_id");
 		query.setParameter("id", id);
 
-		Usuario usuario = (Usuario) query.getSingleResult();
-
+		 usuario = (Usuario) query.getSingleResult();
+		try {
+			 usuario = (Usuario) query.getSingleResult();
+			}catch(NoResultException e) {
+				usuario=null;
+			}
 		em.close();
 
 		return usuario;

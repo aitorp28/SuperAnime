@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.EntityManager;
+import javax.persistence.NoResultException;
 import javax.persistence.Query;
 
 import com.superanime.modelo.entity.Anime;
@@ -11,6 +12,19 @@ import com.superanime.modelo.entity.Productora;
 
 public class ProductoraDaoImpl implements ProductoraDao {
 
+	private static ProductoraDaoImpl INSTANCE = null;
+
+	private ProductoraDaoImpl() {
+		super();
+	}
+
+	public static ProductoraDaoImpl getInstance() {
+		if (INSTANCE == null) {
+			INSTANCE = new ProductoraDaoImpl();
+		}
+		return INSTANCE;
+	}
+	
 	public List<Productora> listAllProductoras() {
 		EntityManager em = EntityManagerGestor.crearEntityManager();
 
@@ -71,14 +85,16 @@ public class ProductoraDaoImpl implements ProductoraDao {
 	}
 
 	public Productora getProductoraById(long id) {
-		
+		Productora productora;
 		EntityManager em = EntityManagerGestor.crearEntityManager();
 
 		Query query = em.createNamedQuery("find_productora_by_id");
 		query.setParameter("id", id);
-
-		Productora productora = (Productora) query.getSingleResult();
-
+		try {
+			productora = (Productora) query.getSingleResult();
+			}catch(NoResultException e) {
+				productora=null;
+			}
 		em.close();
 
 		return productora;

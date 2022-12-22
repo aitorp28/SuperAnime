@@ -3,7 +3,6 @@ package com.superanime.modelo.entity;
 import java.util.HashSet;
 import java.util.Set;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -17,6 +16,7 @@ import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.superanime.modelo.dao.Constantes;
 
 @Entity
@@ -38,8 +38,9 @@ public class Productora {
 	// @Size(min = 2 , max = 255 , message = "La longitud es muy larga")
 	@Size(min = 1, max = 200)
 	private String descripcion;
-
-	@OneToMany(mappedBy = "productora")
+	
+	@JsonIgnore
+	@OneToMany(mappedBy = "productora",fetch=FetchType.EAGER)
 	private Set<Anime> animes;
 
 	@Column

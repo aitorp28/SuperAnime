@@ -16,35 +16,35 @@ public class AnimeServiceImpl implements AnimeService {
 
 	@Override
 	public ArrayList<Anime> listAllAnimes() {
-		animeDao=new AnimeDaoImpl();
+		animeDao=AnimeDaoImpl.getInstance();
 		return animeDao.listAllAnimes();
 	
 	}
 
 	@Override
 	public Anime addAnime(Anime anime) {
-		
+		animeDao=AnimeDaoImpl.getInstance();
 		return animeDao.addAnime(anime);
 	
 	}
 
 	@Override
 	public void deleteAnime(long id) {
-		
+		animeDao=AnimeDaoImpl.getInstance();
 		animeDao.deleteAnime(id);
 		
 	}
 
 	@Override
 	public void updateAnime(Anime anime) {
-
+		animeDao=AnimeDaoImpl.getInstance();
 		animeDao.updateAnime(anime);
 		
 	}
 
 	@Override
 	public Anime getAnimeById(long id) {
-
+		animeDao=AnimeDaoImpl.getInstance();
 		return animeDao.getAnimeById(id);
 	
 	}

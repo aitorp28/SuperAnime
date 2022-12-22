@@ -4,7 +4,6 @@ import java.util.List;
 
 import com.superanime.modelo.entity.Productora;
 
-
 public interface ProductoraDao {
 	public abstract List<Productora> listAllProductoras();
 	public abstract Productora addProductora(Productora productora);

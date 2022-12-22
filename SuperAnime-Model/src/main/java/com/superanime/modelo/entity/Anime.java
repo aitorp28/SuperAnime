@@ -16,7 +16,11 @@ import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
 import com.superanime.modelo.dao.Constantes;
-
+/**
+ * 
+ * @author Oskar LLaguno
+ *
+ */
 @Entity
 @Table(name="anime")
 @NamedQuery(query = Constantes.SQL_ANIME_FIND_BY_ID, name = "find_anime_by_id")

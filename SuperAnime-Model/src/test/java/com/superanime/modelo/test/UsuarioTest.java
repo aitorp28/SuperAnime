@@ -40,15 +40,43 @@ public class UsuarioTest {
 
 	@Test
 	public void test() {
+		/*
 		usuariodaoimpl = new UsuarioDaoImpl();
 		// Prueba para listar todos los usuarios
 		ArrayList<Usuario> usuariolist = (ArrayList<Usuario>) usuariodaoimpl.listAllUsuarios();
+		Usuario u = new Usuario("IDPRUEBA4", "aaaaaaaaaa@gmail.com");
 		for (Usuario usuario : usuariolist) {
-			assertTrue(usuario != null);
-			System.out.println("Email: "+usuario.getEmail());
+			System.out.println("Email: " + usuario.getEmail());
+			if(usuario.getNombre().equals(u.getNombre())|| usuario.getEmail().equals(u.getEmail())) {
+				usuariodaoimpl.addUsuario(u);
+				System.out.println("El ID del objeto es: " + u.getId());
+			}
 		}
-		Usuario usu = usuariodaoimpl.getUsuarioById(new Long(0));
-		System.out.println("Usuario email: "+usu.getEmail());
+		*/
 	}
 
+	@Test
+	public void testSelectAll() {
+		/*
+		// Prueba para listar todos los usuarios
+		ArrayList<Usuario> usuariolist = (ArrayList<Usuario>) usuariodaoimpl.listAllUsuarios();
+		for (Usuario usuario : usuariolist) {
+			System.out.println("Email: " + usuario.getEmail());
+		}
+		*/
+	}
+
+	@Test
+	public void testInsert() {
+		/*
+		 * usuariodaoimpl = new UsuarioDaoImpl(); Usuario u= new
+		 * Usuario("Prueba545555","prueba5454556@gmail.com");
+		 * usuariodaoimpl.addUsuario(u);
+		 * 
+		 * assertTrue(usuariodaoimpl.getUsuarioById(new Long(1))!=null);
+		 * 
+		 * usuariodaoimpl.updateUsuario(usu);
+		 */
+
+	}
 }

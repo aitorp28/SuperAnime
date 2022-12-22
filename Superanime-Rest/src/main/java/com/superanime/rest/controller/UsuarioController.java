@@ -48,7 +48,7 @@ public class UsuarioController {
 		 Usuario u= usuarioServ.getUsuarioById(id);
 		u.setNombre(usuario.getNombre());
 		u.setEmail(usuario.getEmail());
-
-		return usuarioServ.addUsuario(u);
+		usuarioServ.updateUsuario(u);
+		return u;
 	 }	
 }
