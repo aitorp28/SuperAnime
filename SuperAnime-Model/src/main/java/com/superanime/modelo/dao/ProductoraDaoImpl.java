@@ -50,7 +50,7 @@ public class ProductoraDaoImpl implements ProductoraDao {
 		return productora;
 	}
 
-	public void deleteProductora(long id) {
+	public void deleteLogicoProductora(long id) {
 		EntityManager em = EntityManagerGestor.crearEntityManager();
 
 		em.getTransaction().begin();
@@ -71,7 +71,27 @@ public class ProductoraDaoImpl implements ProductoraDao {
 		em.close();
 
 	}
+	public void deleteProductora(long id) {
+		EntityManager em = EntityManagerGestor.crearEntityManager();
 
+		em.getTransaction().begin();
+
+		// obtener Anime por Id
+		Productora p = em.find(Productora.class, id);
+
+		// eliminar
+		if (p != null) {
+			// TODO En el controller al llamar al metodo hay que poner activo=0;
+			em.remove(p);
+		} else {
+			// System.out.println("No se puede elimiar un libro que no existe");
+		}
+
+		em.getTransaction().commit();
+
+		em.close();
+
+	}
 	public void updateProductora(Productora productora) {
 		EntityManager em = EntityManagerGestor.crearEntityManager();
 		// TODO En el controller al llamar al metodo hay que poner activo=1;
