@@ -7,7 +7,6 @@ import javax.persistence.EntityManager;
 import javax.persistence.NoResultException;
 import javax.persistence.Query;
 
-import com.superanime.modelo.entity.Anime;
 import com.superanime.modelo.entity.Productora;
 
 public class ProductoraDaoImpl implements ProductoraDao {
@@ -24,13 +23,31 @@ public class ProductoraDaoImpl implements ProductoraDao {
 		}
 		return INSTANCE;
 	}
-	
+
+	@SuppressWarnings("unchecked")
 	public List<Productora> listAllProductoras() {
 		EntityManager em = EntityManagerGestor.crearEntityManager();
 
-		ArrayList<Productora> productoras = (ArrayList<Productora>) em.createQuery(Constantes.SQL_PRODUCTORA_FIND_ALL)
-				.getResultList();
+		ArrayList<Productora> productoras = (ArrayList<Productora>) em
+				.createQuery(Constantes.SQL_PRODUCTORA_FIND_ALL_ACTIVO).getResultList();
 
+		em.close();
+
+		return productoras;
+	}
+
+	@SuppressWarnings("unchecked")
+	public List<Productora> findFilterByName(String nombre) {
+		ArrayList<Productora> productoras;
+		EntityManager em = EntityManagerGestor.crearEntityManager();
+
+		Query query = em.createNamedQuery("find_productora_by_like_nombre");
+		query.setParameter("nombre", "%" + nombre + "%");
+		try {
+			productoras = (ArrayList<Productora>) query.getResultList();
+		} catch (NoResultException e) {
+			productoras = null;
+		}
 		em.close();
 
 		return productoras;
@@ -50,52 +67,52 @@ public class ProductoraDaoImpl implements ProductoraDao {
 		return productora;
 	}
 
-	public void deleteLogicoProductora(long id) {
+	public boolean existeNombre(String nombre) {
+		Productora productora;
+		EntityManager em = EntityManagerGestor.crearEntityManager();
+
+		Query query = em.createNamedQuery("find_productora_by_nombre");
+		query.setParameter("nombre", nombre);
+		try {
+			productora = (Productora) query.getSingleResult();
+		} catch (NoResultException e) {
+			productora = null;
+		}
+		em.close();
+
+		return productora != null;
+	}
+
+	public boolean deleteLogicoProductora(long id) {
+		boolean borrado = true;
 		EntityManager em = EntityManagerGestor.crearEntityManager();
 
 		em.getTransaction().begin();
 
-		// obtener Anime por Id
+		// obtener Productora por Id
 		Productora p = em.find(Productora.class, id);
 
-		// eliminar
+		// borrado logico
 		if (p != null) {
-			// TODO En el controller al llamar al metodo hay que poner activo=0;
+			p.setActivo(0);
 			em.merge(p);
 		} else {
-			// System.out.println("No se puede elimiar un libro que no existe");
+			borrado = false;
 		}
 
 		em.getTransaction().commit();
 
 		em.close();
-
+		return borrado;
 	}
-	public void deleteProductora(long id) {
-		EntityManager em = EntityManagerGestor.crearEntityManager();
 
-		em.getTransaction().begin();
-
-		// obtener Anime por Id
-		Productora p = em.find(Productora.class, id);
-
-		// eliminar
-		if (p != null) {
-			// TODO En el controller al llamar al metodo hay que poner activo=0;
-			em.remove(p);
-		} else {
-			// System.out.println("No se puede elimiar un libro que no existe");
-		}
-
-		em.getTransaction().commit();
-
-		em.close();
-
-	}
 	public void updateProductora(Productora productora) {
 		EntityManager em = EntityManagerGestor.crearEntityManager();
-		// TODO En el controller al llamar al metodo hay que poner activo=1;
+
+		productora.setActivo(1);
+
 		em.getTransaction().begin();
+
 		em.merge(productora);
 
 		em.getTransaction().commit();
@@ -112,9 +129,9 @@ public class ProductoraDaoImpl implements ProductoraDao {
 		query.setParameter("id", id);
 		try {
 			productora = (Productora) query.getSingleResult();
-			}catch(NoResultException e) {
-				productora=null;
-			}
+		} catch (NoResultException e) {
+			productora = null;
+		}
 		em.close();
 
 		return productora;
