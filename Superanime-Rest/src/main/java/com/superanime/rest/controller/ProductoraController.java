@@ -12,7 +12,6 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.superanime.modelo.entity.Anime;
 import com.superanime.modelo.entity.Productora;
 import com.superanime.rest.service.ProductoraService;
 
@@ -26,8 +25,13 @@ public class ProductoraController {
 	@GetMapping("/productoras")
 	public List<Productora> listAllProductoras() {
 		
-		List<Productora> prod=productoraServ.listAllProductoras();
-		return prod;
+		return productoraServ.listAllProductoras();
+	}
+	
+	@GetMapping("/productorasByName")
+	public List<Productora> findFilterByName(@PathVariable String nombre) {
+
+		return productoraServ.findFilterByName(nombre);
 	}
 	
 	@GetMapping("/productoras/{id}")
@@ -42,7 +46,7 @@ public class ProductoraController {
 	
 	 @DeleteMapping("/productora/{id}")
 	 public void deleteProductora(@PathVariable long id) {
-		 productoraServ.deleteProductora(id);
+		 productoraServ.deleteLogicoProductora(id);
 	 }
 	
 	 @PutMapping("/productora/{id}")

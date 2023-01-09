@@ -21,30 +21,55 @@ public class AnimeController {
 
 	@Autowired
 	private AnimeService animeServ;
+
+	@GetMapping("/animesCliente")
+	public List<Anime> listAllAnimesCliente() {
+		return animeServ.listAllAnimesCliente();
+	}
+
+	@GetMapping("/animesAdmin")
+	public List<Anime> listAllAnimesAdmin() {
+		return animeServ.listAllAnimesAdmin();
+	}
+
+	@GetMapping("/animesUser")
+	public List<Anime> listAnimesUser(@PathVariable long id) {
+		return animeServ.listAnimesUser(id);
+	}
+
+	@GetMapping("/animesNombre")
+	public List<Anime> listAnimesByNombre(@PathVariable String nombre) {
+		return animeServ.listAnimesByNombre(nombre);
+	}
 	
-	@GetMapping("/animes")
-	public List<Anime> listAllAnimes() {
-		return animeServ.listAllAnimes();
+	@GetMapping("/animesProductora")
+	public List<Anime> listAnimesByProductora(@PathVariable long id) {
+		return animeServ.listAnimesByProductora(id);
+	}
+	
+	@GetMapping("/animesByName")
+	public List<Anime> findFilterByName(String nombre) {
+		return animeServ.findFilterByName(nombre);
 	}
 	
 	@GetMapping("/anime/{id}")
-    public Anime getAnimeById(@PathVariable long id) {
-    	return animeServ.getAnimeById(id);
-    }
-	
+	public Anime getAnimeById(@PathVariable long id) {
+		return animeServ.getAnimeById(id);
+	}
+
 	@PostMapping("/anime")
-	public Anime addAnime(@RequestBody Anime anime) {	      		
+	public Anime addAnime(@RequestBody Anime anime) {
 		return animeServ.addAnime(anime);
 	}
-	
-	 @DeleteMapping("/anime/{id}")
-	 public void deleteAnime(@PathVariable long id) {
-		 animeServ.deleteAnime(id);
-	 }
-	
-	 @PutMapping("/anime/{id}")
-	 public Anime update(@RequestBody Anime anime,@PathVariable long id) {
-		 Anime a= animeServ.getAnimeById(id);
+
+	@DeleteMapping("/anime/{id}")
+	public void deleteAnime(@PathVariable long id) {
+		animeServ.deleteLogicoAnime(id);
+	}
+
+	@PutMapping("/anime/{id}")
+	public Anime update(@RequestBody Anime anime, @PathVariable long id) {
+		Anime a = animeServ.getAnimeById(id);
 		a.setNombre(anime.getNombre());
 		a.setSinopsis(anime.getSinopsis());
 		a.setEpisodios(anime.getEpisodios());
@@ -53,5 +78,5 @@ public class AnimeController {
 		a.setGeneros(anime.getGeneros());
 		a.setValidado(anime.getValidado());
 		return animeServ.addAnime(a);
-	 }	
+	}
 }
