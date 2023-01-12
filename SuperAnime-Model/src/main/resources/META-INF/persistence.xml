@@ -17,6 +17,7 @@
 		<class>com.superanime.modelo.entity.Anime</class>
 		<class>com.superanime.modelo.entity.Productora</class>
 		<class>com.superanime.modelo.entity.Usuario</class>
+
 		
 		<properties>
 			<!-- propiedes de conexion de la bbdd -->
