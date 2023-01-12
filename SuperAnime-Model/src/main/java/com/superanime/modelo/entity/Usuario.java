@@ -1,69 +1,70 @@
 package com.superanime.modelo.entity;
 
+import java.util.Set;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.NamedQuery;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Size;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.superanime.modelo.dao.Constantes;
 
 @Entity
 @Table(name = "usuario")
-@NamedQuery(query = Constantes.SQL_USUARIO_FIND_BY_ID, name = "find_usuario_by_id")
+@NamedQuery(query = Constantes.SQL_COMPROBAR_USUARIO, name = "comprobar_usuario")
 public class Usuario {
-	
+
 	@Id
-	@GeneratedValue
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	private long id;
-	
+
 	@Column(unique = true)
 	@NotNull
-	// @Size(min = 2 , max = 255 , message = "La longitud es muy larga")
-	@Size(min = 1, max = 100)
-	private String nombre;
-	
-	@Column(unique = true)
-	@NotNull
-	// @Size(min = 2 , max = 255 , message = "La longitud es muy larga")
-	@Size(min = 3, max = 100)
 	private String email;
 	
+	@Column
+	@NotNull
+	private String password;
+
+	@Column
+	private String perfil;
+	
+	@JsonIgnore
+	@OneToMany(mappedBy = "usuario",fetch=FetchType.EAGER)
+	private Set<Anime> animes;
+
 	public Usuario() {
 		super();
-		// TODO Auto-generated constructor stub
+		this.id = 0;
+		this.email = "";
+		this.perfil = "";
+		this.password = "";
 	}
 
-	public Usuario(String nombre, String email) {
+	public Usuario(String email, String password,String perfil) {
 		super();
-		this.nombre = nombre;
 		this.email = email;
+		this.perfil = perfil;
+		this.password = password;
 	}
-	
-	public Usuario(long id, String nombre, String email) {
+	public Usuario(String email, String password) {
 		super();
-		this.id = id;
-		this.nombre = nombre;
 		this.email = email;
+		this.password = password;
 	}
-
 	public long getId() {
 		return id;
 	}
 
 	public void setId(long id) {
 		this.id = id;
-	}
-
-	public String getNombre() {
-		return nombre;
-	}
-
-	public void setNombre(String nombre) {
-		this.nombre = nombre;
 	}
 
 	public String getEmail() {
@@ -73,4 +74,21 @@ public class Usuario {
 	public void setEmail(String email) {
 		this.email = email;
 	}
+
+	public String getPerfil() {
+		return perfil;
+	}
+
+	public void setPerfil(String perfil) {
+		this.perfil = perfil;
+	}
+
+	public String getPassword() {
+		return password;
+	}
+
+	public void setPassword(String password) {
+		this.password = password;
+	}
+	
 }

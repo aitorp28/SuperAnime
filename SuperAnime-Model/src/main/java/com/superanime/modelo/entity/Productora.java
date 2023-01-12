@@ -3,7 +3,6 @@ package com.superanime.modelo.entity;
 import java.util.HashSet;
 import java.util.Set;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -17,29 +16,32 @@ import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.superanime.modelo.dao.Constantes;
 
 @Entity
 @Table(name = "productora")
 @NamedQuery(query = Constantes.SQL_PRODUCTORA_FIND_BY_ID, name = "find_productora_by_id")
+@NamedQuery(query = Constantes.SQL_PRODUCTORA_FIND_BY_NOMBRE, name = "find_productora_by_nombre")
+@NamedQuery(query = Constantes.SQL_PRODUCTORA_FIND_LIKE__NOMBRE, name = "find_productora_by_like_nombre")
 public class Productora {
+	
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;
 
 	@Column(unique = true)
 	@NotNull
-	// @Size(min = 2 , max = 255 , message = "La longitud es muy larga")
 	@Size(min = 1, max = 100)
 	private String nombre;
 
 	@Column
 	@NotNull
-	// @Size(min = 2 , max = 255 , message = "La longitud es muy larga")
 	@Size(min = 1, max = 200)
 	private String descripcion;
-
-	@OneToMany(mappedBy = "productora")
+	
+	@JsonIgnore
+	@OneToMany(mappedBy = "productora",fetch=FetchType.EAGER)
 	private Set<Anime> animes;
 
 	@Column

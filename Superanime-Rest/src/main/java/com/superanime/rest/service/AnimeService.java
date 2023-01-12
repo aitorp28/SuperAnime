@@ -1,12 +1,12 @@
-package com.superanime.modelo.dao;
+package com.superanime.rest.service;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import com.superanime.modelo.entity.Anime;
 
-public interface AnimeDao {
-	
+public interface AnimeService {
+
 	public abstract ArrayList<Anime> listAllAnimesCliente();
 
 	public abstract ArrayList<Anime> listAllAnimesAdmin();
@@ -18,12 +18,6 @@ public interface AnimeDao {
 	public abstract ArrayList<Anime> listAnimesByProductora(long id);
 
 	public abstract List<Anime> findFilterByName(String name);
-
-	public abstract Anime addAnime(Anime anime);
-
-	public abstract boolean deleteLogicoAnime(long id);
-
-	public abstract void updateAnime(Anime anime);
 
 	public abstract Anime getAnimeById(long id);
 	
