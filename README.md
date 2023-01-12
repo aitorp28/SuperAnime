@@ -33,7 +33,7 @@ Disponemos de dos tablas con una relación 1:N las cuales son Animes y Productor
 
 ![diagrama de la base datos](/documentacion/bbddv2_0.PNG)
 
-##Instalación
+## Instalación
 
 Antes de realizar está instalación es necesario tener instalado los entornos de desarrollo de Eclipse y Spring Tool Suit 4 , tener XAMPP o alguna otra aplicación que active la conexión con la bbdd y crear la bbdd con el nombre de superanime e tener una versión de Tomcat instalada.Para poder iniciar esta aplicación hay que entrar desde a [github](https://github.com/aitorp28/SuperAnime) 
 ![como descargar desde guthub](/documentacion/github_download.PNG)
