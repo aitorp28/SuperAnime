@@ -5,6 +5,16 @@
   <version>0.0.1-SNAPSHOT</version>
   <packaging>war</packaging>
   <name>com.superanime.web</name>
+  <dependencies>
+	  
+	  <dependency>
+			<groupId>com.superanime</groupId>
+			<artifactId>modelo</artifactId>
+			<version>2.1</version>
+		</dependency>
+	  
+	  
+  </dependencies>
   <build>
     <plugins>
       <plugin>
