@@ -12,12 +12,6 @@ public interface ProductoraService {
 
 	public abstract boolean existeNombre(String nombre);
 
-	public abstract Productora addProductora(Productora productora);
-
-	public abstract boolean deleteLogicoProductora(long id);
-
-	public abstract void updateProductora(Productora productora);
-
 	public abstract Productora getProductoraById(long id);
 
 }

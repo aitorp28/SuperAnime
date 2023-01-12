@@ -19,12 +19,7 @@ public interface AnimeService {
 
 	public abstract List<Anime> findFilterByName(String name);
 
-	public abstract Anime addAnime(Anime anime);
-
-	public abstract boolean deleteLogicoAnime(long id);
-
-	public abstract void updateAnime(Anime anime);
-
 	public abstract Anime getAnimeById(long id);
 	
+	public abstract boolean existeNombre(String nombre);
 }

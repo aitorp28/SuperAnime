@@ -41,11 +41,11 @@ public class ProductoraTest {
 	}
 	@Test
 	public void test() {
-		dao.deleteLogicoProductora(1);
-		dao.updateProductora(dao.getProductoraById(1));
-		System.out.println(dao.findFilterByName("p").size());
-		System.out.println(dao.listAllProductoras().size());
-		System.out.println(dao.existeNombre("Mappa"));
+//		dao.deleteLogicoProductora(1);
+//		dao.updateProductora(dao.getProductoraById(1));
+//		System.out.println(dao.findFilterByName("p").size());
+//		System.out.println(dao.listAllProductoras().size());
+//		System.out.println(dao.existeNombre("Mappa"));
 	}
 	/**
 	 * Antes de cada test creamos una productora

@@ -38,35 +38,6 @@ public class ProductoraServiceImpl implements ProductoraService {
 	}
 
 	@Override
-	public Productora addProductora(Productora productora) {
-		Productora p = null;
-		productoraDao = ProductoraDaoImpl.getInstance();
-		
-		if(!productoraDao.existeNombre(productora.getNombre())) {
-			p = productoraDao.addProductora(productora);
-		}
-		
-		return p;
-	}
-
-	@Override
-	public boolean deleteLogicoProductora(long id) {
-		
-		productoraDao = ProductoraDaoImpl.getInstance();
-		
-		return productoraDao.deleteLogicoProductora(id);
-	}
-
-	@Override
-	public void updateProductora(Productora productora) {
-
-		productoraDao = ProductoraDaoImpl.getInstance();
-			
-		productoraDao.updateProductora(productora);
-		
-	}
-
-	@Override
 	public Productora getProductoraById(long id) {
 
 		productoraDao = ProductoraDaoImpl.getInstance();

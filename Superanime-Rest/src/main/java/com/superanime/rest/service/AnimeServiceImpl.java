@@ -61,38 +61,7 @@ public class AnimeServiceImpl implements AnimeService {
 
 		return animeDao.findFilterByName(name);
 	}
-
-	@Override
-	public Anime addAnime(Anime anime) {
-
-		Anime a = null;
-
-		animeDao = AnimeDaoImpl.getInstance();
-
-		if (!animeDao.existeNombre(anime.getNombre())) {
-			a = animeDao.addAnime(anime);
-		}
-
-		return a;
-	}
-
-	@Override
-	public boolean deleteLogicoAnime(long id) {
-
-		animeDao = AnimeDaoImpl.getInstance();
-		
-		return animeDao.deleteLogicoAnime(id);
-	}
-
-	@Override
-	public void updateAnime(Anime anime) {
-		
-		animeDao = AnimeDaoImpl.getInstance();
-			
-		animeDao.updateAnime(anime);
-		
-	}
-
+	
 	@Override
 	public Anime getAnimeById(long id) {
 
@@ -101,4 +70,11 @@ public class AnimeServiceImpl implements AnimeService {
 		return animeDao.getAnimeById(id);
 	}
 
+	@Override
+	public boolean existeNombre(String nombre) {
+
+		animeDao = AnimeDaoImpl.getInstance();
+		
+		return animeDao.existeNombre(nombre);
+	}
 }

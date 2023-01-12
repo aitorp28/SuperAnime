@@ -26,4 +26,6 @@ public interface AnimeDao {
 	public abstract void updateAnime(Anime anime);
 
 	public abstract Anime getAnimeById(long id);
+	
+	public abstract boolean existeNombre(String nombre);
 }

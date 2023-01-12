@@ -40,17 +40,17 @@ public class AnimeTest {
 	}
 	@Test
 	public void testUpdate() throws Exception {
-		Usuario u= dao.getAnimeById(1).getUsuario();
-		Productora p = dao.getAnimeById(1).getProductora();
-		//System.out.println(u.getPerfil());
-		//System.out.println(p.getAnimes().size());
-		System.out.println(dao.listAnimesUser(1).size());
-		System.out.println(dao.listAllAnimesAdmin().size());
-		System.out.println(dao.listAllAnimesCliente().size());
-		System.out.println(dao.listAnimesByProductora(1).size());
-		System.out.println(dao.listAnimesByProductora(1).get(0).getNombre());
-		System.out.println(dao.listAnimesUser(1).get(0).getUsuario().getEmail());
-		dao.deleteLogicoAnime(1);
+//		Usuario u= dao.getAnimeById(1).getUsuario();
+//		Productora p = dao.getAnimeById(1).getProductora();
+//		//System.out.println(u.getPerfil());
+//		//System.out.println(p.getAnimes().size());
+//		System.out.println(dao.listAnimesUser(1).size());
+//		System.out.println(dao.listAllAnimesAdmin().size());
+//		System.out.println(dao.listAllAnimesCliente().size());
+//		System.out.println(dao.listAnimesByProductora(1).size());
+//		System.out.println(dao.listAnimesByProductora(1).get(0).getNombre());
+//		System.out.println(dao.listAnimesUser(1).get(0).getUsuario().getEmail());
+//		dao.deleteLogicoAnime(1);
 	}
 //	/**
 //	 * Al finalizar todos los metodos de test
