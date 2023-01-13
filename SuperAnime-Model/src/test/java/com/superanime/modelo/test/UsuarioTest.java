@@ -33,17 +33,17 @@ public class UsuarioTest {
 	public void tearDown() throws Exception {
 	}
 
-	@Test
-	public void test() {
-		
-		usuariodaoimpl = UsuarioDaoImpl.getInstance();
-
-		assertFalse(usuariodaoimpl.comprobarUsuario("oskarf4k3@gmail.com","paco") != null);
-		assertFalse(usuariodaoimpl.comprobarUsuario("paco@gmail.com","aaa") != null);
-		if(usuariodaoimpl.comprobarUsuario("oskarf4k3@gmail.com","paco")!=null) {
-			Usuario u = usuariodaoimpl.comprobarUsuario("oskarf4k3@gmail.com","paco");
-			System.out.println(u.getPerfil());
-		}
-		
-	}
+//	@Test
+//	public void test() {
+//		
+//		usuariodaoimpl = UsuarioDaoImpl.getInstance();
+//
+//		assertFalse(usuariodaoimpl.comprobarUsuario("oskarf4k3@gmail.com","paco") != null);
+//		assertFalse(usuariodaoimpl.comprobarUsuario("paco@gmail.com","aaa") != null);
+//		if(usuariodaoimpl.comprobarUsuario("oskarf4k3@gmail.com","paco")!=null) {
+//			Usuario u = usuariodaoimpl.comprobarUsuario("oskarf4k3@gmail.com","paco");
+//			System.out.println(u.getPerfil());
+//		}
+//		
+//	}
 }

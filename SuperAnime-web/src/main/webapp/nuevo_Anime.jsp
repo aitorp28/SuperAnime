@@ -58,7 +58,7 @@
 
 			</div>
 			<div class="d-flex  justify-content-sm-center">
-				<form action="actualizarAnime" id="formulario">
+				<form action="crearAnime" id="formulario">
 
 
 					<div class="row row-col align-items-center justify-content-center" id="center">
@@ -78,14 +78,14 @@
 					dao = ProductoraDaoImpl.getInstance();
 					%>
 				
-						<input type="text" id="id" name="id" class="form-control d-none" aria-describedby="nombre" value="<%= a.getId()%>">
+					
 							<div class="row g-3 align-items-center">
 								<div class="col-auto">
 									<label for="inputPassword6" class="col-form-label">Nombre</label>
 								</div>
 								<div class="col-auto">
-									<input type="text" id="nombre"  readonly="true"name="nombre" class="form-control"
-										aria-describedby="nombre" value="<%= a.getNombre()%>">
+									<input type="text" id="nombre"  name="nombre" class="form-control"
+										aria-describedby="nombre" value="">
 									
 									
 								</div>
@@ -95,7 +95,7 @@
 								</div>
 								<div class="col-auto">
 									<input type="text" id="genero" name="genero" class="form-control"
-										aria-describedby="genero" value="<%= a.getGeneros()%>">
+										aria-describedby="genero" value="">
 								</div>
 							</div>
 							<div class="row g-3 align-items-center">
@@ -104,7 +104,7 @@
 								</div>
 								<div class="col-auto">
 									<input type="text" id="episodios" class="form-control" name="episodios" 
-										aria-describedby="passwordHelpInline" value="<%= a.getEpisodios()%>">
+										aria-describedby="passwordHelpInline" value="">
 								</div>
 								<div class="col-auto">
 									<label for="inputPassword6" class="col-form-label">Productora</label>
@@ -116,15 +116,13 @@
 									List<Productora> productora = dao.listAllProductoras();
  									out.println("<select name='productora'>");
 											for (Productora pa : productora){
-												if(pa.getId()==a.getProductora().getId()){
+												
 													%>
-													<option value="<%=pa.getId()%>" selected><%= pa.getNombre()%></option>
-													<%
-												}else{
-													 %>
 													 <option value="<%=pa.getId()%>" ><%= pa.getNombre()%></option>
-													 <% 
-												}
+													<%
+												
+												
+												
 											}
 								
 											%>
@@ -132,7 +130,7 @@
 								</div>
 								
 									<input type="productora" id="productora" class="form-control" name="productora"
-										aria-describedby="passwordHelpInline" value="<%= a.getProductora().getNombre()%>">
+										aria-describedby="passwordHelpInline" value="">
 								</div>
 							</div>
 							<div class="row g-3 align-items-center">
@@ -140,7 +138,7 @@
 									<label for="inputPassword6" class="col-form-label">Sinopsis</label>
 								</div>
 								<div class="col-auto">
-									<textarea name="sinopsis"><%= a.getSinopsis()%></textarea>
+									<textarea name="sinopsis"></textarea>
 								</div>
 							</div>
 						

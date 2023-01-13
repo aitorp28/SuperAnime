@@ -40,7 +40,8 @@
         } else {
         	
     %>
-        <button class="btn btn-outline-success" id="registro" onclick="<%session.setAttribute("usuario", null) ; %> "  type="submit"><c:if test="condition">Logout</c:if></button>
+       <button class="btn btn-outline-success" id="registro"  > "  type="submit"><c:if test="condition">Logout</c:if></button> 
+        <%-- <button class="btn btn-outline-success" id="registro" onclick="<%session.setAttribute("usuario", null) ; %> "  type="submit"><c:if test="condition">Logout</c:if></button> --%>
     <%
     
 	
