@@ -12,8 +12,6 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
 @SpringBootApplication
 @EnableSwagger2
-//(scanBasePackages={
-//		"com.superanime.model.dao", "com.superanime.model.entity"})
 public class SuperanimeRestApplication {
 
 	public static void main(String[] args) {
