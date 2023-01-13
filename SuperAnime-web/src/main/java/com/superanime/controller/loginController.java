@@ -1,6 +1,7 @@
 package com.superanime.controller;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -16,8 +17,8 @@ import com.superanime.modelo.entity.Usuario;
 /**
  * Servlet implementation class mainController
  */
-@WebServlet("/vistaInicio")
-public class vistaInicioController extends HttpServlet {
+@WebServlet("/login")
+public class loginController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	
 	private UsuarioDaoImpl usuarioDaoImpl ;
@@ -25,7 +26,7 @@ public class vistaInicioController extends HttpServlet {
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public vistaInicioController() {
+    public loginController() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -37,13 +38,36 @@ public class vistaInicioController extends HttpServlet {
 		// TODO Auto-generated method stub
 //		response.getWriter().append("Served at: ").append(request.getContextPath());
 	
-				HttpSession sesion = request.getSession(true);
 		
-				sesion.getAttribute("email").toString();
-				
+	    usuarioDaoImpl = UsuarioDaoImpl.getInstance();
+	    Usuario u = new Usuario ();
+	   
+	    u=usuarioDaoImpl.comprobarUsuario(request.getParameter("email"), request.getParameter("password"));
+	    if(u!=null) { 
+	    	HttpSession sesion = request.getSession(true);
+	    	
 		
+	    	
+	    	sesion.setAttribute("usuario",u);
 	        RequestDispatcher despachador = request.getRequestDispatcher("index.jsp");
 	        despachador.forward(request, response);
+	        
+	        
+	        PrintWriter out = response.getWriter();
+	        out.println("<script type=\"text/javascript\">");
+	        out.println("document.getElementById('registro').innerHTML");
+	        out.println("</script>");
+	        
+	    }else{
+	    //si falla el login alert campos vacios
+//	    	RequestDispatcher despachador = request.getRequestDispatcher("index.jsp"); 
+//	    	despachador.forward(request, response);
+	    	PrintWriter out = response.getWriter();
+	    	 out.println("<script type=\"text/javascript\">");
+	    	   out.println("alert('User or password incorrect');");
+	    	   out.println("location='login.jsp';");
+	    	   out.println("</script>");
+	    } 
 
 	    
 	}

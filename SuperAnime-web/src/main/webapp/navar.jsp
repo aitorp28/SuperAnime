@@ -1,4 +1,4 @@
-
+<%@ page import="com.superanime.modelo.entity.Usuario" %>
       <nav class="navbar navbar-expand-lg navbar-dark fixed-top bg-dark">
             <div class="container-fluid">
                 <a class="navbar-brand" href="#">Carousel</a>
@@ -29,10 +29,31 @@
                     </ul>
                  <form action = "mainController" class="d-flex" role="search">
 <!--                         <input class="form-control me-2" type="search" placeholder="Buscar" aria-label="Buscar">
- -->                        <button class="btn btn-outline-success" type="submit">Login</button>
+ -->  
+ 
+ <%
+        Usuario username =(Usuario) session.getAttribute("usuario");
+        if(username==null)  {
+    %>            
+         <button class="btn btn-outline-success" id="registro" type="submit"><c:if test="condition">Login</c:if></button>
+    <%
+        } else {
+        	
+    %>
+        <button class="btn btn-outline-success" id="registro" onclick="<%session.setAttribute("usuario", null) ; %> "  type="submit"><c:if test="condition">Logout</c:if></button>
+    <%
+    
+	
+        }
+    %>                      
+
+ 
+
+
                     </form>
                 </div>
             </div>
         </nav>
+
         <br/>
 </div>       

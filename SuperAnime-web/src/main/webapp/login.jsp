@@ -1,4 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"	pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
 <!doctype html>
 <html lang="en">
 <head>
@@ -42,66 +43,102 @@
 
 		<h2>SUPER ANIME</h2>
 		<br />
-		<div class="form-row justify-content-center">
-			<div class="col-lg-6 col-md-8 mx-auto">
-				<div class="row">
-					<div class="col-md-3">
+		<form  action="login" method="POST" onsubmit="comprobar()" id="formulario">
+			<div class="form-row justify-content-center">
+				<div class="col-lg-6 col-md-8 mx-auto">
+					<div class="row">
+						<div class="col-md-3">
 
 
-						<label for="exampleInputPassword1" class="form-label">Email</label>
-					</div>
-					<div class="col-md-8">
-						<input type="email" class="form-control"
-							id="exampleInputPassword1">
-					</div>
-				</div>
-			</div>
-		</div>
-
-		<br />
-		<div class="form-row justify-content-center">
-			<div class="col-lg-6 col-md-8 mx-auto">
-				<div class="row">
-					<div class="col-md-3">
-
-
-						<label for="exampleInputPassword1" class="form-label">Password</label>
-					</div>
-					<div class="col-md-8">
-						<input type="password" class="form-control"
-							id="exampleInputPassword1">
+							<label for="email" class="form-label">Email</label>
+						</div>
+						<div class="col-md-8">
+							<input type="email" name="email" id="email">
+						</div>
 					</div>
 				</div>
 			</div>
-		</div>
+
+			<br />
+			<div class="form-row justify-content-center">
+				<div class="col-lg-6 col-md-8 mx-auto">
+					<div class="row">
+						<div class="col-md-3">
 
 
-		<br />
+							<label for="password" class="form-label">Password</label>
+						</div>
+						<div class="col-md-8">
+							<input type="password" name="password" id="password">
+						</div>
+					</div>
+				</div>
+			</div>
 
-		<div class="form-row justify-content-center">
-			<div class="col-lg-6 col-md-8 mx-auto">
-				<div class="row">
-					<div class="col-md-7">
+
+			<br />
+
+			<div class="form-row justify-content-center">
+				<div class="col-lg-6 col-md-8 mx-auto">
+					<div class="row">
+						<div class="col-md-7">
 
 
-						<form action="vistaInicio" class="btn ">
+							<!--  <form action = "vistaInicio" class="btn " id="formulario"> -->
 							<button class="btn btn-secondary" type="submit">VOLVER</button>
-						</form>
-					</div>
-					<div class="col-md-2">
-						<form action="vistaInicio" class="btn ">
-							<button class="btn btn-primary" type="submit">ACEPTAR</button>
-						</form>
+							<!--      </form>   -->
+						</div>
+						<div class="col-md-2">
+							<!-- <form action = "vistaInicio" class="btn " id="formulario"> -->
+							<button class="btn btn-primary"  id="aceptar"  type="submit" >ACEPTAR</button>
+							<!--      </form>   -->
+						</div>
 					</div>
 				</div>
 			</div>
-		</div>
 
+
+		</form>
 
 
 
 	</div>
 
+ 	<script >
+		/* document.addEventListener("DOMContentLoaded", function() {
+			document.getElementById("formulario").addEventListener('submit',
+					validarFormulario);
+		}); */
+		function comprobar() {
+			/* document.getElementById("aceptar").style.color = "red"; */
+	 	/*  	evento.preventDefault(); */
+			var empt = document.forms["formulario"]["email"].value;
+			if (empt == "")
+			{
+			alert("Please input a Value");
+			return false;
+			}
+			else 
+			{
+			/* alert('Code has accepted : you can try another'); */
+			
+			}
+				
+
+	/* 		if (usuario.length == 0) {
+				alert('No has escrito nada en el usuario');
+				return;
+			}
+			var clave = document.getElementById('password').value;
+			if (clave.length < 6) {
+				alert('La clave no es válida');
+				return;
+			} */
+
+			this.submit();
+
+		}
+	</script> 
 
 
 

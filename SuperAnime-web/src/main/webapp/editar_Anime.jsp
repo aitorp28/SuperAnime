@@ -1,4 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"	pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
 <!doctype html>
 <html lang="en">
 <head>
@@ -12,8 +13,16 @@
 	rel="stylesheet"
 	integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
 	crossorigin="anonymous">
-
+	<style>
+		#formulario{
+		max-Width : 660px !IMPORTANT;
+		}
+	
+	
+	
+	</style>
 </head>
+
 <body>
 
 
@@ -38,50 +47,96 @@
 
 		<div class="container">
 			<div class="row">
-				<div class="col"><h1>Anime</h1></div>
-				
+				<div class="col">
+					<h1>Anime</h1>
+				</div>
+
 
 			</div>
-		 <form action = "listaAnimes" >
-               
-               
-			<div class="row row-col align-items-center">
-			
-			
-				Nombre <input type="text" width=" !IMPORTANT 20px">
-				
-					Genero <input type="text">
-					
-					
-					Episodios <input type="text">
-					
-					Productora <input type="text">
-					
-					Sinopsis <textarea ></textarea>
-			
-				
-		
-				
-					
-			
+			<div class="d-flex  justify-content-sm-center">
+				<form action="listaAnimes" id="formulario">
 
+
+					<div class="row row-col align-items-center justify-content-center" id="center">
+						<div class=" row">
+
+
+							<!-- 
+					Nombre <input type="text" width=" !IMPORTANT 20px"> Genero
+					<input type="text"> Episodios <input type="text">
+
+					Productora <input type="text"> Sinopsis
+					<textarea></textarea> -->
+					
+
+							<div class="row g-3 align-items-center">
+								<div class="col-auto">
+									<label for="inputPassword6" class="col-form-label">Nombre</label>
+								</div>
+								<div class="col-auto">
+									<input type="text" id="nombre" name="nombre" class="form-control"
+										aria-describedby="passwordHelpInline">
+								</div>
+
+								<div class="col-auto">
+									<label for="inputPassword6" class="col-form-label">Genero</label>
+								</div>
+								<div class="col-auto">
+									<input type="password" id="inputPassword6" name="genero" class="form-control"
+										aria-describedby="passwordHelpInline">
+								</div>
+							</div>
+							<div class="row g-3 align-items-center">
+								<div class="col-auto">
+									<label for="inputPassword6" class="col-form-label">Episodios</label>
+								</div>
+								<div class="col-auto">
+									<input type="password" id="inputPassword6" class="form-control" name="episodios" 
+										aria-describedby="passwordHelpInline">
+								</div>
+								<div class="col-auto">
+									<label for="inputPassword6" class="col-form-label">Productora</label>
+								</div>
+								<div class="col-auto">
+									<input type="password" id="inputPassword6" class="form-control" name="productora"
+										aria-describedby="passwordHelpInline">
+								</div>
+							</div>
+							<div class="row g-3 align-items-center">
+								<div class="col-auto">
+									<label for="inputPassword6" class="col-form-label">Sinopsis</label>
+								</div>
+								<div class="col-auto">
+									<textarea name="sinopsis"></textarea>
+								</div>
+							</div>
+						
+						</div>
+					</div>
 			</div>
-			<br/>
+			<br />
 			<div>
-			 <form action = "listaAnimes" >
-			 <button class="btn btn-secondary" type="submit">Cancelar</button>
-			 </form>
-			 <button class="btn btn-primary" type="submit">Aceptar</button>
-			 </form>
-			 </div>
 			
+			<form action="listaAnimes">
+				<button class="btn btn-secondary" type="submit">Cancelar</button>
+			</form>
+			<button class="btn btn-primary" type="submit">Aceptar</button>
+			</form>
 		</div>
-		
-		     
-		
+
 	</div>
 
 
+
+	</div>
+
+	<script type="text/javascript">
+		function myFunction() {
+			let txt = document.getElementById("formulario").style.maxWidth = "660px" !IMPORTANT;
+			
+			txt.style.maxWidth = "660px";
+		}
+	</script>
 
 
 	<%@ include file="footer.jsp"%>
