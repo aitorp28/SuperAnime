@@ -22,7 +22,7 @@ import com.superanime.modelo.dao.Constantes;
 public class Usuario {
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;
 
 	@Column(unique = true)
