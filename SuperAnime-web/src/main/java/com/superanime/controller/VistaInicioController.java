@@ -17,7 +17,7 @@ import com.superanime.modelo.entity.Usuario;
  * Servlet implementation class mainController
  */
 @WebServlet("/vistaInicio")
-public class vistaInicioController extends HttpServlet {
+public class VistaInicioController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	
 	private UsuarioDaoImpl usuarioDaoImpl ;
@@ -25,7 +25,7 @@ public class vistaInicioController extends HttpServlet {
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public vistaInicioController() {
+    public VistaInicioController() {
         super();
         // TODO Auto-generated constructor stub
     }

@@ -18,7 +18,7 @@ import com.superanime.modelo.entity.Usuario;
  * Servlet implementation class mainController
  */
 @WebServlet("/login")
-public class loginController extends HttpServlet {
+public class LoginController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	
 	private UsuarioDaoImpl usuarioDaoImpl ;
@@ -26,7 +26,7 @@ public class loginController extends HttpServlet {
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public loginController() {
+    public LoginController() {
         super();
         // TODO Auto-generated constructor stub
     }

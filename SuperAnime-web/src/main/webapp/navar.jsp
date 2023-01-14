@@ -12,19 +12,23 @@
                 				 <button class="btn btn-outline-secondary" type="submit">INICIO</button>
                     		</form>
                         </li>
+                         <%
+        Usuario username =(Usuario) session.getAttribute("usuario");
+      
+    %>
                         <li class="nav-item">
                           <form action = "mainController" class="d-flex">
                             <a class="nav-link" href="#">Enlace</a>
                             </form>
                         </li>
                         <li class="nav-item">
-                        <c:if test="${usuario.getPerfil().equals('admin')}">
+                         <c:if test="${username.getPerfil().equals('admin')}"> 
 
 
                              <form action = "listaAnimes" >
                 				 <button class="btn btn-outline-secondary" type="submit">ANIMES</button>
                     		</form>
-                    		</c:if>
+                    		</c:if> 
                         </li>
                     </ul>
                  <form action = "mainController" class="d-flex" role="search">
@@ -32,7 +36,7 @@
  -->  
  
  <%
-        Usuario username =(Usuario) session.getAttribute("usuario");
+     
         if(username==null)  {
     %>            
          <button class="btn btn-outline-success" id="registro" type="submit"><c:if test="condition">Login</c:if></button>

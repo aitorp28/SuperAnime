@@ -154,7 +154,7 @@ var texto=	document.getElementById("buscar").text;
 								<% 
 									out.println("<tr>");
 									Anime anime = animes.get(i);
-									out.println("<input  name='id' value=" + anime.getId() + ">");
+									out.println("<input  name='id' class='d-none' value=" + anime.getId() + ">");
 									out.println("<td>" + i + "</td>");
 									out.println("<td >"+"<input name='nombre' class='d-none'>" + anime.getNombre() + "</td>");
 									out.println("<td>" +"<input name='episodios' class='d-none'>"+ anime.getEpisodios() + "</td>");

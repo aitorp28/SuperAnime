@@ -9,25 +9,29 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.superanime.modelo.dao.AnimeDaoImpl;
 import com.superanime.modelo.dao.ProductoraDaoImpl;
+import com.superanime.modelo.dao.UsuarioDaoImpl;
 import com.superanime.modelo.entity.Anime;
 import com.superanime.modelo.entity.Productora;
+import com.superanime.modelo.entity.Usuario;
 
 /**
  * Servlet implementation class mainController
  */
-@WebServlet("/actualizarAnime")
-public class actualizarAnimeController extends HttpServlet {
+@WebServlet("/crearAnime")
+public class CrearAnimeController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
 	private AnimeDaoImpl animeDaoImpl;
 	private ProductoraDaoImpl productoraDaoImpl;
+	private UsuarioDaoImpl usuarioDaoImpl;
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public actualizarAnimeController() {
+    public CrearAnimeController() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -43,32 +47,61 @@ public class actualizarAnimeController extends HttpServlet {
 		animeDaoImpl = AnimeDaoImpl.getInstance();
 		productoraDaoImpl = ProductoraDaoImpl.getInstance();
 		
+		HttpSession sesion = request.getSession(true); 
+		Usuario u =(Usuario) sesion.getAttribute("usuario");
+		
+		
+		if(!animeDaoImpl.existeNombre((request.getParameter("nombre")))) {
 			
-		long id= new Long(request.getParameter("id"));
+		
+		
 		String nombre =  (request.getParameter("nombre"));
 		String genero =  (request.getParameter("genero"));
 		String sinopsis =  (request.getParameter("sinopsis"));
 		int episodios =  Integer.parseInt(request.getParameter("episodios"));
 		int id_productora = Integer.parseInt(request.getParameter("productora"));
+		
 		Productora productora = productoraDaoImpl.getProductoraById(id_productora);
+//		Usuario u =(Usuario) request.getAttribute("usuario");
 		
 		
-		Anime a= animeDaoImpl.getAnimeById(id);
 		
-		a.setGeneros(genero);
-		a.setSinopsis(sinopsis);
-		a.setEpisodios(episodios);
-		a.setProductora(productora);
 		
-		animeDaoImpl.updateAnime(a);
+		
+			sesion.setAttribute("usuario",u);
+    	
+		
+    	
+    	
+		
+		Anime a = new Anime( nombre,  genero,  sinopsis,  episodios,  productora,  u,
+				 0,  1);
+//		
+//		a.setNombre(nombre);
+//		a.setGeneros(genero);
+//		a.setSinopsis(sinopsis);
+//		a.setEpisodios(episodios);
+//		a.setProductora(productora);
+//		
+//		a.setValidado(0);
+//		a.setActivo(1);
+//		a.setUsuario(u);
+		animeDaoImpl.addAnime(a);
+		}else {
+			sesion.setAttribute("usuario",u);
+			PrintWriter out = response.getWriter();
+	    	 out.println("<script type='text/javascript'>");
+	    	   out.println("alert('User or password incorrect');");
+	    	   out.println("location='login.jsp';");
+	    	   out.println("</script>");
+			
+		}
+		
+		
+		
+		 
+		 
 	
-		
-		
-		
-		 
-		 
-		String per=request.getParameter("per");
-		request.setAttribute("persona",per);
 		RequestDispatcher despachador = request.getRequestDispatcher("tabla_animes.jsp");
 	    despachador.forward(request, response);
 		

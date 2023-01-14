@@ -18,7 +18,7 @@ import com.superanime.modelo.entity.Usuario;
  * Servlet implementation class mainController
  */
 @WebServlet("/listaAnimes")
-public class listaAnimesController extends HttpServlet {
+public class ListaAnimesController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
 	private AnimeDaoImpl animeDaoImpl;
@@ -26,7 +26,7 @@ public class listaAnimesController extends HttpServlet {
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public listaAnimesController() {
+    public ListaAnimesController() {
         super();
         // TODO Auto-generated constructor stub
     }
