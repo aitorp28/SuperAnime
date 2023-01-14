@@ -41,9 +41,10 @@
 								<%
 								if (u.getPerfil().equals("admin")) {
 								%>
-
+								<form action="animesSinAceptar">
 								<button class="btn btn-outline-secondary" type="submit">Animes
 									Sin Aceptar</button>
+									</form>
 								<%
 								}
 								%>
@@ -165,13 +166,40 @@ var texto=	document.getElementById("buscar").text;
 									/*  out.println("<td>"+anime.getValidado()+"</td>"); */
 									out.println("<td><button class='btn btn-info' type='submit'>Editar</button></td>");
 									if (anime.getValidado() == 0 && u.getPerfil().equals("admin")) {
+										%>
+									</form>	
+										<form action="aceptarAnime">
+										<%
+										out.println("<input  name='id' class='d-none' value=" + anime.getId() + ">");
 										out.println("<td><button class='btn btn-success' type='submit'>Aceptar</button></td>");
+										
 									}
-
+									%>
+									
+									</form>
+									
+										<form action="eliminarAnime">
+										<%
+										out.println("<input  name='id' class='d-none' value=" + anime.getId() + ">");
+										if(anime.getActivo()== 1){
+										out.println("<td><button class='btn btn-danger' type='submit'>Borrar</button></td>");
+										}
+										%>
+										</form>
+										<form action="activarAnime">
+										<%
+										if(anime.getActivo()== 0){
+											out.println("<input  name='id' class='d-none' value=" + anime.getId() + ">");
+											out.println("<td><button class='btn btn-warning' type='submit'>Activar</button></td>");
+										}
+									
+									%>
+									</form>
+									<%
 									out.println("</tr>");
 								
 									%>
-									</form>
+									
 							<%	}
 								%>
 							

@@ -1,3 +1,8 @@
+<%@ page import="com.superanime.modelo.dao.AnimeDaoImpl"%>
+<%@ page import="com.superanime.modelo.entity.Usuario"%>
+<%@ page import="com.superanime.modelo.entity.Anime"%>
+<%@ page import="java.util.ArrayList"%>
+
 <!doctype html>
 <html lang="en">
 
@@ -20,6 +25,32 @@
     <link rel="icon" href="/docs/5.1/assets/img/favicons/favicon.ico">
     <meta name="theme-color" content="#7952b3">
     <style>
+    
+    	#paraVosotros{
+		background-image: url("https://images3.alphacoders.com/117/1178785.jpg");
+		background-position-y: top;
+		background-position-x: center;
+		 background-size: 740px;
+		  background-attachment: fixed;
+		    background-repeat: no-repeat;
+	}
+    	#naruto{
+		background-image: url("https://giffiles.alphacoders.com/121/12161.gif");
+		
+		   max-height: 50px;
+		 
+	}
+	
+	
+	
+	#icono{
+	 width:195px;
+    height:191px;
+    border-radius:100px;
+	
+	}
+	
+	
         .bd-placeholder-img {
             font-size: 1.125rem;
             text-anchor: middle;
@@ -33,6 +64,7 @@
                 font-size: 3.5rem;
             }
         }
+	
 
     </style>
 
@@ -49,14 +81,20 @@
     </header>
      
     <%@ include file = "navar.jsp" %> 
-     
+     	<%
+	AnimeDaoImpl dao = null;
+	dao = AnimeDaoImpl.getInstance();
+	Usuario u = (Usuario) session.getAttribute("usuario");
+	Anime a = null;
+	ArrayList<Anime> animes = new ArrayList<>();
+	%>
      
 	<!-- ESTE APARTADO SE INTRODUCEN LOS SEGEMENTOS EN EL BODY -->
 	 <main>
-        <section class="py-5 text-center container">
-            <div class="row py-lg-5">
+        <section class="py-5 text-center container" id="paraVosotros">
+            <div class="row py-lg-5" >
                 <div class="col-lg-6 col-md-8 mx-auto">
-                    <h1 class="fw-light">Album example</h1>
+                    <h1 class="fw-light">SUPER ANIME</h1>
                     <p class="lead text-muted">Something short and leading about the collection below—its contents, the creator, etc. Make it short and sweet, but not too short so folks don’t simply skip over it entirely.</p>
                     <p>
                         <a href="#" class="btn btn-primary my-2">Main call to action</a>
@@ -71,57 +109,47 @@
         <div class="container marketing">
 
             <div class="row align-items-center">
-                <div class="col-md-3">
-                    <svg class="bd-placeholder-img rounded-circle" width="140" height="140" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 140x140" preserveAspectRatio="xMidYMid slice" focusable="false">
-                        <title>Placeholder</title>
-                        <rect width="100%" height="100%" fill="#777" /><text x="50%" y="50%" fill="#777" dy=".3em">140x140</text>
-                    </svg>
-                    <h2>Encabezado</h2>
-                    <p>Algo de contenidoplaceholder representativo para las tres columnas de texto debajo del carrusel. Esta es la primera columna.</p>
-                     <form action = "verAnime" class="btn btn-secondary" >
-                 <button class="btn btn-secondary" type="submit">Ver detalles</button>
-                    </form>
-                </div>
-                <div class="col-md-3">
-                    <svg class="bd-placeholder-img rounded-circle" width="140" height="140" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 140x140" preserveAspectRatio="xMidYMid slice" focusable="false">
-                        <title>Placeholder</title>
-                        <rect width="100%" height="100%" fill="#777" /><text x="50%" y="50%" fill="#777" dy=".3em">140x140</text>
-                    </svg>
-                    <h2>Encabezado</h2>
-                    <p>Otro fragmento emocionante de contenidoplaceholder representativo. Esta vez, pasamos a la segunda columna.</p>
-                   <form action = "verAnime" class="btn btn-secondary" >
-                 <button class="btn btn-secondary" type="submit">Ver detalles</button>
+           <%
+           
+           
+           animes = dao.listAllAnimesCliente();
+           if(animes.size()!= 0){
+       	for (int i = 0; i < animes.size(); i++) {
+       		Anime anime = animes.get(i);
+           %>
+                <div class="col-md-3  col-md-offset-1">
+                    
+                       <!-- <img src="   https://cdn-icons-png.flaticon.com/128/1647/1647125.png " >  -->
+                       <img id="icono"src="   https://c.tenor.com/T6UiVl0G2lsAAAAC/tenor.gif" > 
+                    
+                    <h2><%=anime.getNombre() %></h2>
+                    
+                    <p>Episodios: <%=anime.getEpisodios() %> <br/>Sinopsis: <%=anime.getSinopsis() %></p>
+                    <p></p>
+                   <form action = "verAnime" >
+                   <%out.println("<input  name='id' class='d-none' value=" + anime.getId() + ">"); %>
+                 <button class="btn btn-info" type="submit">Ver detalles</button>
                     </form>
                   
                 </div>
-                    <div class="col-md-3">
-                    <svg class="bd-placeholder-img rounded-circle" width="140" height="140" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 140x140" preserveAspectRatio="xMidYMid slice" focusable="false">
-                        <title>Placeholder</title>
-                        <rect width="100%" height="100%" fill="#777" /><text x="50%" y="50%" fill="#777" dy=".3em">140x140</text>
-                    </svg>
-                    <h2>Encabezado</h2>
-                    <p>Otro fragmento emocionante de contenidoplaceholder representativo. Esta vez, pasamos a la segunda columna.</p>
-                      <form action = "verAnime" class="btn btn-secondary" >
-                 <button class="btn btn-secondary" type="submit">Ver detalles</button>
-                    </form>
-                </div>
-                <div class="col-md-3">
-                  <svg class="bd-placeholder-img rounded-circle" width="140" height="140" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 140x140" preserveAspectRatio="xMidYMid slice" focusable="false">
-                        <title>Placeholder</title>
-                        <rect width="100%" height="100%" fill="#777" /><text x="50%" y="50%" fill="#777" dy=".3em">140x140</text>
-                    </svg>
-                    <h2>Encabezado</h2>
-                    <p>Otro fragmento emocionante de contenidoplaceholder representativo. Esta vez, pasamos a la segunda columna.</p>
-                     <form action = "verAnime" class="btn btn-secondary" >
-                 <button class="btn btn-secondary" type="submit">Ver detalles</button>
-                    </form>
-                </div>
+                
+                <%
+       	}
+           }else{
+        	   
+         
+                %>  
+                <img src="https://giffiles.alphacoders.com/350/35046.gif">
+        <% } %>
                  </div>
             
             </div>
+<%
 
 
-		<div class="container marketing">
+%>
+
+		<!-- <div class="container marketing">
 
             <div class="row align-items-center">
                 <div class="col-md-3">
@@ -161,7 +189,7 @@
                     <p><a class="btn btn-secondary" href="#">Ver detalles &raquo;</a></p>
                 </div>
                  </div>
-             </div>
+             </div> -->
             </div>
            </main> 
            

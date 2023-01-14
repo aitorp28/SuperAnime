@@ -3,8 +3,9 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
         
      <div class="navbar fixed-bottom">
-     <footer class="container">
-            <p class="float-end"><a href="#">Ir arriba</a></p>
+     <footer class="container" >
+            <p class="float-end" ><a href="#">Ir arriba</a>  <img id="naruto" src="https://giffiles.alphacoders.com/121/12161.gif"></p>
+           
             <p>&copy; 05/01/2023 &middot; <a href="#">Privacidad</a> &middot; <a href="#">Términos</a></p>
        
               </footer>
