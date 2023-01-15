@@ -1,7 +1,7 @@
 package com.superanime.controller;
 
 import java.io.IOException;
-import java.io.PrintWriter;
+import java.util.List;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -20,16 +20,14 @@ import com.superanime.modelo.entity.Usuario;
 /**
  * Servlet implementation class mainController
  */
-@WebServlet("/actualizarAnime")
-public class ActualizarAnimeController extends HttpServlet {
+@WebServlet("/editarProductora")
+public class EditarProductoraController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
-	private AnimeDaoImpl animeDaoImpl;
-	private ProductoraDaoImpl productoraDaoImpl;
+	private ProductoraDaoImpl  productoraDaoImpl;
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public ActualizarAnimeController() {
+    public EditarProductoraController() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -41,43 +39,19 @@ public class ActualizarAnimeController extends HttpServlet {
 		// TODO Auto-generated method stub
 //		response.getWriter().append("Served at: ").append(request.getContextPath());
 		
-		
-		animeDaoImpl = AnimeDaoImpl.getInstance();
 		productoraDaoImpl = ProductoraDaoImpl.getInstance();
+		
 		HttpSession sesion = request.getSession(true); 
 		Usuario u =(Usuario) sesion.getAttribute("usuario");
-			
+		
 		long id= new Long(request.getParameter("id"));
-		String nombre =  (request.getParameter("nombre"));
-		String genero =  (request.getParameter("genero"));
-		String sinopsis =  (request.getParameter("sinopsis"));
-		int episodios =  Integer.parseInt(request.getParameter("episodios"));
-		int id_productora = Integer.parseInt(request.getParameter("productora"));
-		Productora productora = productoraDaoImpl.getProductoraById(id_productora);
+		Productora p =  productoraDaoImpl.getProductoraById(id);
 		
-		
-		Anime a= animeDaoImpl.getAnimeById(id);
-		
-		a.setGeneros(genero);
-		a.setSinopsis(sinopsis);
-		a.setEpisodios(episodios);
-		a.setProductora(productora);
-		
-		animeDaoImpl.updateAnime(a);
-	
 		sesion.setAttribute("usuario",u);
 		
-		
-		 
-		 
-
-		RequestDispatcher despachador = request.getRequestDispatcher("tabla_animes.jsp");
+		request.setAttribute("productora",p);
+		RequestDispatcher despachador = request.getRequestDispatcher("editar_productora.jsp");
 	    despachador.forward(request, response);
-		
-		
-		
-		
-		
 	}
 
 	/**

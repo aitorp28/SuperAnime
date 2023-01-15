@@ -9,9 +9,11 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.superanime.modelo.dao.AnimeDaoImpl;
 import com.superanime.modelo.entity.Anime;
+import com.superanime.modelo.entity.Usuario;
 
 /**
  * Servlet implementation class mainController
@@ -37,9 +39,13 @@ public class EditarAnimeController extends HttpServlet {
 		
 		animeDaoImpl = AnimeDaoImpl.getInstance();
 		
+		HttpSession sesion = request.getSession(true); 
+		Usuario u =(Usuario) sesion.getAttribute("usuario");
+		
 		long id= new Long(request.getParameter("id"));
 		Anime a =  animeDaoImpl.getAnimeById(id);
 		
+		sesion.setAttribute("usuario",u);
 		
 		request.setAttribute("anime",a);
 		RequestDispatcher despachador = request.getRequestDispatcher("editar_Anime.jsp");

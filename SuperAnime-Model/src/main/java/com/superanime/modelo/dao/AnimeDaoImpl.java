@@ -51,6 +51,32 @@ public class AnimeDaoImpl implements AnimeDao {
 		return animes;
 	}
 	@SuppressWarnings("unchecked")
+	public ArrayList<Anime> listAllAnimesNoValidados() {
+		ArrayList<Anime> animes;
+		EntityManager em = EntityManagerGestor.crearEntityManager();
+		try {
+			animes = (ArrayList<Anime>) em.createQuery(Constantes.SQL_ANIME_FIND_BY_NO_VALIDADO).getResultList();
+		} catch (NoResultException e) {
+			animes = null;
+		}
+		em.close();
+
+		return animes;
+	}
+	@SuppressWarnings("unchecked")
+	public ArrayList<Anime> listAllAnimesValidados() {
+		ArrayList<Anime> animes;
+		EntityManager em = EntityManagerGestor.crearEntityManager();
+		try {
+			animes = (ArrayList<Anime>) em.createQuery(Constantes.SQL_ANIME_FIND_BY_VALIDADO).getResultList();
+		} catch (NoResultException e) {
+			animes = null;
+		}
+		em.close();
+
+		return animes;
+	}
+	@SuppressWarnings("unchecked")
 	public ArrayList<Anime> listAnimesUser(long id) {
 
 		ArrayList<Anime> animes = null;

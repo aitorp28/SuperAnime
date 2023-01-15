@@ -19,7 +19,7 @@
 	crossorigin="anonymous">
 	<style>
 		#formulario{
-		max-Width : 660px !IMPORTANT;
+		max-Width : 378px !IMPORTANT;
 		}
 	
 	
@@ -47,18 +47,25 @@
                 </div>
             </div>
         </section> -->
+        			<%
+					Productora p = (Productora) request.getAttribute("productora");
+					
+					ProductoraDaoImpl dao = null;
+					dao = ProductoraDaoImpl.getInstance();
+					%>
 	<div class="py-5 text-center container">
 
 		<div class="container">
 			<div class="row">
 				<div class="col">
-					<h1>Anime</h1>
+					<h1>Productora</h1>
+					
 				</div>
 
 
 			</div>
 			<div class="d-flex  justify-content-sm-center">
-				<form action="actualizarAnime" id="formulario">
+				<form action="crearProductora" id="formulario" method="post">
 
 
 					<div class="row row-col align-items-center justify-content-center" id="center">
@@ -71,92 +78,54 @@
 
 					Productora <input type="text"> Sinopsis
 					<textarea></textarea> -->
-					<%
-					Anime a = (Anime) request.getAttribute("anime");
-					
-					ProductoraDaoImpl dao = null;
-					dao = ProductoraDaoImpl.getInstance();
-					%>
+		
 				
-						<input type="text" id="id" name="id" class="form-control d-none" aria-describedby="nombre" value="<%= a.getId()%>">
+						
 							<div class="row g-3 align-items-center">
-								<div class="col-auto">
+						<div class="col-auto">
 									<label for="inputPassword6" class="col-form-label">Nombre</label>
 								</div>
 								<div class="col-auto">
-									<input type="text" id="nombre"  readonly="true"name="nombre" class="form-control"
-										aria-describedby="nombre" value="<%= a.getNombre()%>">
+									<input type="text" id="nombre"  name="nombre" class="form-control"
+										aria-describedby="nombre" value="">
 									
 									
 								</div>
-
-								<div class="col-auto">
-									<label for="inputPassword6" class="col-form-label">Genero</label>
-								</div>
-								<div class="col-auto">
-									<input type="text" id="genero" name="genero" class="form-control"
-										aria-describedby="genero" value="<%= a.getGeneros()%>">
-								</div>
+								
+								
+							
+							
 							</div>
 							<div class="row g-3 align-items-center">
-								<div class="col-auto">
-									<label for="inputPassword6" class="col-form-label">Episodios</label>
+									<div class="col-auto">
+									<label for="inputPassword6" class="col-form-label">Descripcion</label>
 								</div>
 								<div class="col-auto">
-									<input type="text" id="episodios" class="form-control" name="episodios" 
-										aria-describedby="passwordHelpInline" value="<%= a.getEpisodios()%>">
+									<textarea name="descripcion" ></textarea>
 								</div>
-								<div class="col-auto">
-									<label for="inputPassword6" class="col-form-label">Productora</label>
-								</div>
-								<div class="col-auto">
-								<div>
-								<%
-								
-									List<Productora> productora = dao.listAllProductoras();
- 									out.println("<select name='productora'>");
-											for (Productora pa : productora){
-												if(pa.getId()==a.getProductora().getId()){
-													%>
-													<option value="<%=pa.getId()%>" selected><%= pa.getNombre()%></option>
-													<%
-												}else{
-													 %>
-													 <option value="<%=pa.getId()%>" ><%= pa.getNombre()%></option>
-													 <% 
-												}
-											}
-								
-											%>
-								
-								</div>
-								
-									<input type="productora" id="productora" class="form-control" name="productora"
-										aria-describedby="passwordHelpInline" value="<%= a.getProductora().getNombre()%>">
-								</div>
+							
+							
 							</div>
-							<div class="row g-3 align-items-center">
-								<div class="col-auto">
-									<label for="inputPassword6" class="col-form-label">Sinopsis</label>
-								</div>
-								<div class="col-auto">
-									<textarea name="sinopsis"><%= a.getSinopsis()%></textarea>
-								</div>
-							</div>
+						
 						
 						</div>
 					</div>
-			</div>
+					
+					
+					
+					
+					
+		
 			<br />
 			<div>
 			
-			<form action="listaAnimes">
+			<form action="listaProductoras">
 				<button class="btn btn-secondary" type="submit">Cancelar</button>
 			</form>
 			<button class="btn btn-primary" type="submit">Aceptar</button>
 			</form>
 		</div>
-
+	</div>
 	</div>
 
 
@@ -165,9 +134,9 @@
 
 	<script type="text/javascript">
 		function myFunction() {
-			let txt = document.getElementById("formulario").style.maxWidth = "660px" !IMPORTANT;
+			let txt = document.getElementById("formulario").style.maxWidth = "378px" !IMPORTANT;
 			
-			txt.style.maxWidth = "660px";
+			txt.style.maxWidth = "378px";
 		}
 	</script>
 

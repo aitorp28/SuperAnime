@@ -35,13 +35,13 @@
 					<div class="row">
 
 						<div class="col">
-							<form class="d-grid gap-2">
+							<form class="d-grid gap-2" action="filtrarSinValidar">
 
 
 								<%
 								if (u.getPerfil().equals("admin")) {
 								%>
-								<form action="animesSinAceptar">
+								<form action="filtrarSinValidar">
 								<button class="btn btn-outline-secondary" type="submit">Animes
 									Sin Aceptar</button>
 									</form>
@@ -51,12 +51,14 @@
 							</form>
 						</div>
 						<div class="col">
-							<form class="d-grid gap-2 ">
+							<form class="d-grid gap-2 " action="filtrarValidados">
 								<%
 								if (u.getPerfil().equals("admin")) {
 								%>
+								<form action="filtrarValidados">
 								<button class="btn btn-outline-secondary" type="submit">Animes
 									General</button>
+									</form>
 									<%
 								}
 								%>
@@ -70,10 +72,10 @@
 							</form>
 						</div>
 						<div class="col">
-							<form class="d-flex">
+							<form class="d-flex" action="buscarAnime">
 								<input class="form-control me-2" type="search"
-									placeholder="Search" aria-label="Search" id="buscar">
-								<button class="btn btn-outline-success" onclick=""type="submit">Search</button>
+									placeholder="Search" aria-label="Search" name="nombre"id="buscar">
+								<button class="btn btn-outline-success" onclick="" type="submit">Search</button>
 							</form>
 						</div>
 					</div>
@@ -136,18 +138,22 @@ var texto=	document.getElementById("buscar").text;
 
 								Anime a = null;
 								ArrayList<Anime> animes = new ArrayList<>();
-								switch (u.getPerfil()) {
-								case "admin":
-									animes = dao.listAllAnimesAdmin();
-									break;
-								case "user":
+								if(request.getAttribute("animes") == null){
+									switch (u.getPerfil()) {
+									                                case "admin":
+									                                    animes = dao.listAllAnimesAdmin();
+									                                    break;
+									                                case "user":
 
-									animes = dao.listAnimesUser(u.getId());
-									break;
+									                                    animes = dao.listAnimesUser(u.getId());
+									                                    break;
 
-								default:
-									animes = null;
-								}
+									                                default:
+									                                    animes = null;
+									                                }
+									}else{
+									              animes =(ArrayList<Anime>) request.getAttribute("animes");
+									}
 
 								for (int i = 0; i < animes.size(); i++) {
 								%>

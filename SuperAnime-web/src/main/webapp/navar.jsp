@@ -1,51 +1,78 @@
 <%@ page import="com.superanime.modelo.entity.Usuario" %>
-      <nav class="navbar navbar-expand-lg navbar-dark fixed-top bg-dark">
+      <nav class="navbar navbar-expand-lg navbar-dark  bg-dark">
             <div class="container-fluid">
-                <a class="navbar-brand" href="#">Carousel</a>
+             <form action = "vistaInicio" name="verinicio">
+                <a class="navbar-brand" href="javascript:verInicio()">SUPERANIME</a>
+                </form>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="collapse navbar-collapse" id="navbarCollapse">
-                    <ul class="navbar-nav me-auto mb-2 mb-md-0">
-                        <li class="nav-item">
-                            <form action = "vistaInicio" >
-                				 <button class="btn btn-outline-secondary" type="submit">INICIO</button>
-                    		</form>
-                        </li>
+                    <ul class="navbar-nav me-auto mb-2 mb-md-0 ">
+                        
                          <%
         Usuario username =(Usuario) session.getAttribute("usuario");
       
     %>
+                     
                         <li class="nav-item">
-                          <form action = "mainController" class="d-flex">
-                            <a class="nav-link" href="#">Enlace</a>
-                            </form>
-                        </li>
-                        <li class="nav-item">
-                         <c:if test="${username.getPerfil().equals('admin')}"> 
+                        <% 
+                        if (username!= null ){
+                        %>
+                        
 
 
-                             <form action = "listaAnimes" >
-                				 <button class="btn btn-outline-secondary" type="submit">ANIMES</button>
+                             <form action = "listaAnimes" onclick="verAnimes" name="animes">
+                				 
+                				<a class="nav-link" href="javascript:verAnimes()">Animes</a>
+                			
                     		</form>
-                    		</c:if> 
+                    		<%
+                        }
+                    		
+                    		%>
+                        </li>
+                        
+                                           <li class="nav-item">
+                        <% 
+                        if (username!= null && username.getPerfil().equals("admin")){
+                        %>
+                        
+
+
+                             <form action = "listaProductoras" onclick="verProductoras()" name="productoras">
+                				 
+                				<a class="nav-link" href="javascript:verProductoras()">Productoras</a>
+                			
+                    		</form>
+                    		<%
+                        }
+                    		
+                    		%>
                         </li>
                     </ul>
-                 <form action = "mainController" class="d-flex" role="search">
+              
 <!--                         <input class="form-control me-2" type="search" placeholder="Buscar" aria-label="Buscar">
  -->  
  
  <%
      
         if(username==null)  {
-    %>            
-         <button class="btn btn-outline-success" id="registro" type="submit"><c:if test="condition">Login</c:if></button>
+    %>  
+       <form action = "mainController" class="d-flex" role="search">          
+         <button class="btn btn-outline-success" id="registro" type="submit">Login</button>
+          </form>
     <%
         } else {
         	
     %>
-       <button class="btn btn-outline-success" id="registro"  > "  type="submit"><c:if test="condition">Logout</c:if></button> 
+    	<form action="logoutUsuario">
+    
+       <button class="btn btn-outline-success" id="registro"   type="submit">Logout</button> 
         <%-- <button class="btn btn-outline-success" id="registro" onclick="<%session.setAttribute("usuario", null) ; %> "  type="submit"><c:if test="condition">Logout</c:if></button> --%>
+    	
+    	</form>
+    
     <%
     
 	
@@ -55,10 +82,24 @@
  
 
 
-                    </form>
+                   
                 </div>
             </div>
         </nav>
+<script type="text/javascript">
 
-        <br/>
+	function verAnimes() {
+		 document.animes.submit()
+	}
+
+	function verProductoras() {
+		 document.productoras.submit()
+	}
+	
+	function verInicio() {
+		 document.verinicio.submit()
+	}
+
+</script>
+       
 </div>       

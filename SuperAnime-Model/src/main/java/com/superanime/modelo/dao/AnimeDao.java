@@ -28,4 +28,8 @@ public interface AnimeDao {
 	public abstract Anime getAnimeById(long id);
 	
 	public abstract boolean existeNombre(String nombre);
+	
+	public abstract ArrayList<Anime> listAllAnimesNoValidados();
+	
+	public abstract ArrayList<Anime> listAllAnimesValidados();
 }

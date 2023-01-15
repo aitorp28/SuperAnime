@@ -29,7 +29,7 @@ public class ProductoraDaoImpl implements ProductoraDao {
 		EntityManager em = EntityManagerGestor.crearEntityManager();
 
 		ArrayList<Productora> productoras = (ArrayList<Productora>) em
-				.createQuery(Constantes.SQL_PRODUCTORA_FIND_ALL_ACTIVO).getResultList();
+				.createQuery(Constantes.SQL_PRODUCTORA_FIND_ALL).getResultList();
 
 		em.close();
 

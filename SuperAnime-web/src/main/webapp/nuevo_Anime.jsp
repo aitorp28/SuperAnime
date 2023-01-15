@@ -143,20 +143,36 @@
 						
 						</div>
 					</div>
-			</div>
+					</form>
+			
+			
 			<br />
 			<div>
 			
-			<form action="listaAnimes">
-				<button class="btn btn-secondary" type="submit">Cancelar</button>
-			</form>
-			<button class="btn btn-primary" type="submit">Aceptar</button>
-			</form>
+			<form action="listaAnimes"></form>
+				<button class="btn btn-secondary" onclick="volver" type="submit">Cancelar</button>
+			
+			<button class="btn btn-primary" onclick="crearAnime()" type="submit">Aceptar</button>
+			
 		</div>
-
+</div>
 	</div>
 
+<script type="text/javascript">
 
+	function crearAnime() {
+		 document.crearAnime.submit()
+	}
+
+	function volver() {
+		 document.listaAnimes.submit()
+	}
+	
+	function verInicio() {
+		 document.verinicio.submit()
+	}
+
+</script>
 
 	</div>
 

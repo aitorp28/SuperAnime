@@ -51,7 +51,7 @@ public class CrearAnimeController extends HttpServlet {
 		Usuario u =(Usuario) sesion.getAttribute("usuario");
 		
 		
-		if(!animeDaoImpl.existeNombre((request.getParameter("nombre")))) {
+		if(!animeDaoImpl.existeNombre((request.getParameter("nombre")))&& request.getParameter("episodios")!= "") {
 			
 		
 		

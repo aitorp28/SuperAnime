@@ -41,7 +41,7 @@
 
 
 
-		<h2>SUPER ANIME</h2>
+		<h1>SUPER ANIME</h1>
 		<br />
 		<form  action="login" method="POST" onsubmit="comprobar()" id="formulario">
 			<div class="form-row justify-content-center">
