@@ -46,8 +46,8 @@
 						<div class="col">
 							<form class="d-flex" action="buscarProductora">
 								<input class="form-control me-2" type="search"
-									placeholder="Search" aria-label="Search" name="nombre"id="buscar">
-								<button class="btn btn-outline-success" onclick="" type="submit">Search</button>
+									placeholder="Buscar" aria-label="Search" name="nombre"id="buscar">
+								<button class="btn btn-outline-success" onclick="" type="submit">Buscar</button>
 							</form>
 						</div>
 					</div>
