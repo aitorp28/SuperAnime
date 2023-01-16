@@ -131,7 +131,7 @@
 								
 								</div>
 								
-									<input type="productora" id="productora" class="form-control" name="productora"
+									<input type="productora" id="productora" class="form-control  form-select-lg d-none" name="productora"
 										aria-describedby="passwordHelpInline" value="<%= a.getProductora().getNombre()%>">
 								</div>
 							</div>

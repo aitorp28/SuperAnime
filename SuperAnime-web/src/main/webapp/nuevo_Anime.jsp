@@ -128,8 +128,8 @@
 								
 								</div>
 								
-									<input type="productora" id="productora" class="form-control" name="productora"
-										aria-describedby="passwordHelpInline" value="">
+									 <input type="productora" id="productora" class="form-control d-none" name="productora"
+										aria-describedby="passwordHelpInline" value=""> 
 								</div>
 							</div>
 							<div class="row g-3 align-items-center">

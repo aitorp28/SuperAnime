@@ -97,7 +97,7 @@ public class CrearAnimeController extends HttpServlet {
 			
 		}
 		
-		
+		sesion.setAttribute("usuario",u);
 		
 		 
 		 

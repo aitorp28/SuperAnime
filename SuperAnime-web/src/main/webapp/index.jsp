@@ -24,10 +24,12 @@
     <link rel="mask-icon" href="/docs/5.1/assets/img/favicons/safari-pinned-tab.svg" color="#7952b3">
     <link rel="icon" href="/docs/5.1/assets/img/favicons/favicon.ico">
     <meta name="theme-color" content="#7952b3">
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    
     <style>
     
     	#paraVosotros{
-		background-image: url("https://images3.alphacoders.com/117/1178785.jpg");
+		/* background-image: url("https://images3.alphacoders.com/117/1178785.jpg"); */
 		background-position-y: top;
 		background-position-x: center;
 		 background-size: 740px;
@@ -65,6 +67,8 @@
             }
         }
 	
+	
+	
 
     </style>
 
@@ -92,6 +96,24 @@
 	<!-- ESTE APARTADO SE INTRODUCEN LOS SEGEMENTOS EN EL BODY -->
 	 <main>
         <section class="py-5 text-center container" id="paraVosotros">
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        <!-- Fin pàra -->
             <div class="row py-lg-5" >
                 <div class="col-lg-6 col-md-8 mx-auto">
                     <h1 class="fw-light">SUPERANIME</h1>
@@ -163,12 +185,22 @@
 		   <div class="container marketing">
 </div>
 
-
-<script type="text/javascript">
-
-
-
-</script>
+ 
+<script>
+               $( document ).ready(function(){
+                    let images = [
+                         "https://images3.alphacoders.com/117/1178785.jpg",
+                         "https://giffiles.alphacoders.com/121/12161.gif",
+                         "image 3",
+                    ];
+                    var i = 0;
+                    window.setInterval(function(){
+                         /* $('#paraVosotros'). css({"background-image": "url(" + images[i]+ ")"}).animate({"opacity": "0"}, "slow"); */
+                         $('#paraVosotros'). css({"background-image": "url(" + images[i]+ ")"}).animate({opacity: "show"  });
+                         i = (i==images.length-1) ? 0 : i+1;
+                    }, 5000);
+               });
+          </script>
 
 
 
