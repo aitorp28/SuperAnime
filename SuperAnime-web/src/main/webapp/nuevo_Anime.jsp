@@ -83,7 +83,7 @@
 									<label for="inputNombre" pattern="^[\s\S]{0,25}$" class="col-form-label">Nombre</label>
 								</div>
 								<div class="col-auto">
-									<input type="text" id="nombre" pattern="[a-zA-Z]{1,25}" name="nombre" class="form-control"
+									<input type="text" id="nombre" placeholder="25 caracteres max" pattern="[a-zA-Z]{1,25}" name="nombre" class="form-control"
 										aria-describedby="nombre" value="">
 									
 									
@@ -93,7 +93,7 @@
 									<label for="inputGenero" class="col-form-label">Genero</label>
 								</div>
 								<div class="col-auto">
-									<input type="text" id="genero" pattern="[a-zA-Z]{1,25}" name="genero" class="form-control"
+									<input type="text" id="genero" placeholder="25 caracteres max" pattern="[a-zA-Z]{1,25}" name="genero" class="form-control"
 										aria-describedby="genero" value="">
 								</div>
 							</div>
@@ -102,7 +102,7 @@
 									<label for="inputEpisodio" class="col-form-label">Episodios</label>
 								</div>
 								<div class="col-auto">
-									<input type="text" id="episodios"  pattern="[0-9]{1,4}" class="form-control" name="episodios" 
+									<input type="text" id="episodios" placeholder="4 caracteres max" pattern="[0-9]{1,4}" class="form-control" name="episodios" 
 										aria-describedby="passwordHelpInline" value="">
 								</div>
 								<div class="col-auto">

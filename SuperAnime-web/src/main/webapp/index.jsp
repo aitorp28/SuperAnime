@@ -52,6 +52,7 @@
     background-repeat:no-repeat; 
     background-size: contain !IMPORTANT;
 	 -webkit-text-fill-color: transparent;
+	 margin-top: 1em;
 	}
 	
 		/* #container {  width:195px;
