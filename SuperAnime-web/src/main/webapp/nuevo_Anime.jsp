@@ -80,33 +80,33 @@
 					
 							<div class="row g-3 align-items-center">
 								<div class="col-auto">
-									<label for="inputPassword6" class="col-form-label">Nombre</label>
+									<label for="inputNombre" pattern="^[\s\S]{0,25}$" class="col-form-label">Nombre</label>
 								</div>
 								<div class="col-auto">
-									<input type="text" id="nombre"  name="nombre" class="form-control"
+									<input type="text" id="nombre" pattern="[a-zA-Z]{1,25}" name="nombre" class="form-control"
 										aria-describedby="nombre" value="">
 									
 									
 								</div>
 
 								<div class="col-auto">
-									<label for="inputPassword6" class="col-form-label">Genero</label>
+									<label for="inputGenero" class="col-form-label">Genero</label>
 								</div>
 								<div class="col-auto">
-									<input type="text" id="genero" name="genero" class="form-control"
+									<input type="text" id="genero" pattern="[a-zA-Z]{1,25}" name="genero" class="form-control"
 										aria-describedby="genero" value="">
 								</div>
 							</div>
 							<div class="row g-3 align-items-center">
 								<div class="col-auto">
-									<label for="inputPassword6" class="col-form-label">Episodios</label>
+									<label for="inputEpisodio" class="col-form-label">Episodios</label>
 								</div>
 								<div class="col-auto">
-									<input type="text" id="episodios" class="form-control" name="episodios" 
+									<input type="text" id="episodios"  pattern="[0-9]{1,4}" class="form-control" name="episodios" 
 										aria-describedby="passwordHelpInline" value="">
 								</div>
 								<div class="col-auto">
-									<label for="inputPassword6" class="col-form-label">Productora</label>
+									<label for="inputProductora" class="col-form-label">Productora</label>
 								</div>
 								<div class="col-auto">
 								<div>

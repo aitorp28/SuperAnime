@@ -6,7 +6,7 @@
 <!-- Required meta tags -->
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-
+<link rel="stylesheet" type="text/css" href="css/superestilos.css" />
 <!-- Bootstrap CSS -->
 <link
 	href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
@@ -41,7 +41,7 @@
 
 
 
-		<h1>SUPER ANIME</h1>
+		<h1 id="emboss-txt">SUPER ANIME</h1>
 		<br />
 		<form  action="login" method="POST" onsubmit="comprobar()" id="formulario">
 			<div class="form-row justify-content-center">
