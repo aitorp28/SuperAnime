@@ -20,18 +20,31 @@ public class ProductoraController {
 	@Autowired
 	private ProductoraService productoraServ;
 	
+	/**
+	 * Metodo para listar todas las productoras
+	 * @return List<Productora>
+	 */
 	@GetMapping("/productoras")
 	public List<Productora> listAllProductoras() {
 		
 		return productoraServ.listAllProductoras();
 	}
-	
+	/**
+	 * Metodo para mostrar las productoras que incluyen parte del nombre enviado
+	 * @param nombre Nombre/parte de nombre que puede incluir las productoras
+	 * @return List<Productora>
+	 */
 	@GetMapping("/productorasByName")
 	public List<Productora> findFilterByName(@PathVariable String nombre) {
 
 		return productoraServ.findFilterByName(nombre);
 	}
 	
+	/**
+	 * Metodo para buscar la productora por su id
+	 * @param id Id de la Productora
+	 * @return Productora
+	 */
 	@GetMapping("/productoras/{id}")
     public Productora getProductoraById(@PathVariable long id) {
     	return productoraServ.getProductoraById(id);
