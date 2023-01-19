@@ -19,7 +19,9 @@ import com.superanime.modelo.entity.Productora;
 import com.superanime.modelo.entity.Usuario;
 
 /**
- * Servlet implementation class mainController
+ * Servlet implementation class animesSinAceptar
+ * para filtrar en el apartado de animes 
+ * todos los animes que todavia no a validado el administrador esto solo puede hacer el administrador
  */
 @WebServlet("/animesSinAceptar")
 public class AnimesSinAceptarAnimeController extends HttpServlet {
@@ -40,8 +42,7 @@ public class AnimesSinAceptarAnimeController extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-//		response.getWriter().append("Served at: ").append(request.getContextPath());
+		
 		
 		
 

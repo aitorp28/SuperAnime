@@ -19,7 +19,8 @@ import com.superanime.modelo.entity.Productora;
 import com.superanime.modelo.entity.Usuario;
 
 /**
- * Servlet implementation class mainController
+ * Servlet implementation class buscarAnime 
+ * para poder buscar animes que se visualizan en la tabla previamente dicha. 
  */
 @WebServlet("/buscarAnime")
 public class BuscarAnimeController extends HttpServlet {
@@ -38,9 +39,9 @@ public class BuscarAnimeController extends HttpServlet {
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
+   
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-//		response.getWriter().append("Served at: ").append(request.getContextPath());
+		
 		
 		
 		animeDaoImpl = AnimeDaoImpl.getInstance();

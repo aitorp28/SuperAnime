@@ -19,7 +19,9 @@ import com.superanime.modelo.entity.Productora;
 import com.superanime.modelo.entity.Usuario;
 
 /**
- * Servlet implementation class mainController
+ * Servlet implementation class activarAnime
+ * para activar el anime una vez que se ha hecho el borrado logico,
+ *  en este caso lo hace el usuario administrador y esto se comprueba en el jsp
  */
 @WebServlet("/activarAnime")
 public class ActivarAnimeController extends HttpServlet {
@@ -52,7 +54,7 @@ public class ActivarAnimeController extends HttpServlet {
 		Usuario u =(Usuario) sesion.getAttribute("usuario");
 		
 		
-
+		//Actualiza la tabla en la base de datos para poner en Activo cambiando el valor de 0 a 1 y asi volver a activar el anime
 		long id= new Long(request.getParameter("id"));
 		Anime a =  animeDaoImpl.getAnimeById(id);
 		a.setActivo(1);

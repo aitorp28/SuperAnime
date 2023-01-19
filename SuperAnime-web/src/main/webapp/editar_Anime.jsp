@@ -1,9 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-	<%@ page import="com.superanime.modelo.entity.Anime"%>
-	<%@ page import="com.superanime.modelo.entity.Productora"%>
-	<%@ page import="com.superanime.modelo.dao.ProductoraDaoImpl"%>
-	<%@ page import="java.util.List"%>
+<%@ page import="com.superanime.modelo.entity.Anime"%>
+<%@ page import="com.superanime.modelo.entity.Productora"%>
+<%@ page import="com.superanime.modelo.dao.ProductoraDaoImpl"%>
+<%@ page import="java.util.List"%>
 <!doctype html>
 <html lang="en">
 <head>
@@ -17,14 +17,11 @@
 	rel="stylesheet"
 	integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
 	crossorigin="anonymous">
-	<style>
-		#formulario{
-		max-Width : 660px !IMPORTANT;
-		}
-	
-	
-	
-	</style>
+<style>
+#formulario {
+	max-Width: 660px !IMPORTANT;
+}
+</style>
 </head>
 
 <body>
@@ -34,19 +31,8 @@
 
 
 	<%@ include file="navar.jsp"%>
-	
-	<!-- 	 <section class="py-5 text-center container">
-            <div class="row py-lg-5">
-                <div class="col-lg-6 col-md-8 mx-auto">
-                    <h1 class="fw-light">Album example</h1>
-                    <p class="lead text-muted">Something short and leading about the collection below—its contents, the creator, etc. Make it short and sweet, but not too short so folks don’t simply skip over it entirely.</p>
-                    <p>
-                        <a href="#" class="btn btn-primary my-2">Main call to action</a>
-                        <a href="#" class="btn btn-secondary my-2">Secondary action</a>
-                    </p>
-                </div>
-            </div>
-        </section> -->
+
+
 	<div class="py-5 text-center container">
 
 		<div class="container">
@@ -61,41 +47,40 @@
 				<form action="actualizarAnime" id="formulario">
 
 
-					<div class="row row-col align-items-center justify-content-center" id="center">
+					<div class="row row-col align-items-center justify-content-center"
+						id="center">
 						<div class=" row">
 
 
-							<!-- 
-					Nombre <input type="text" width=" !IMPORTANT 20px"> Genero
-					<input type="text"> Episodios <input type="text">
 
-					Productora <input type="text"> Sinopsis
-					<textarea></textarea> -->
-					<%
-					Anime a = (Anime) request.getAttribute("anime");
-					
-					ProductoraDaoImpl dao = null;
-					dao = ProductoraDaoImpl.getInstance();
-					%>
-				
-						<input type="text" id="id" name="id" class="form-control d-none" aria-describedby="nombre" value="<%= a.getId()%>">
+							<%
+							Anime a = (Anime) request.getAttribute("anime");
+
+							ProductoraDaoImpl dao = null;
+							dao = ProductoraDaoImpl.getInstance();
+							%>
+
+							<input type="text" id="id" name="id" class="form-control d-none"
+								aria-describedby="nombre" value="<%=a.getId()%>">
 							<div class="row g-3 align-items-center">
 								<div class="col-auto">
 									<label for="inputPassword6" class="col-form-label">Nombre</label>
 								</div>
 								<div class="col-auto">
-									<input type="text" id="nombre"  readonly="true"name="nombre" class="form-control"
-										aria-describedby="nombre" value="<%= a.getNombre()%>">
-									
-									
+									<input type="text" id="nombre" readonly="true" name="nombre"
+										class="form-control" aria-describedby="nombre"
+										value="<%=a.getNombre()%>">
+
+
 								</div>
 
 								<div class="col-auto">
 									<label for="inputPassword6" class="col-form-label">Genero</label>
 								</div>
 								<div class="col-auto">
-									<input type="text" id="genero" name="genero" class="form-control"
-										aria-describedby="genero" value="<%= a.getGeneros()%>">
+									<input type="text" id="genero" name="genero"
+										class="form-control" aria-describedby="genero"
+										value="<%=a.getGeneros()%>">
 								</div>
 							</div>
 							<div class="row g-3 align-items-center">
@@ -103,36 +88,37 @@
 									<label for="inputPassword6" class="col-form-label">Episodios</label>
 								</div>
 								<div class="col-auto">
-									<input type="text" id="episodios" class="form-control" name="episodios" 
-										aria-describedby="passwordHelpInline" value="<%= a.getEpisodios()%>">
+									<input type="text" id="episodios" class="form-control"
+										name="episodios" aria-describedby="passwordHelpInline"
+										value="<%=a.getEpisodios()%>">
 								</div>
 								<div class="col-auto">
 									<label for="inputPassword6" class="col-form-label">Productora</label>
 								</div>
 								<div class="col-auto">
-								<div>
-								<%
-								
-									List<Productora> productora = dao.listAllProductoras();
- 									out.println("<select name='productora'>");
-											for (Productora pa : productora){
-												if(pa.getId()==a.getProductora().getId()){
-													%>
-													<option value="<%=pa.getId()%>" selected><%= pa.getNombre()%></option>
-													<%
-												}else{
-													 %>
-													 <option value="<%=pa.getId()%>" ><%= pa.getNombre()%></option>
-													 <% 
-												}
-											}
-								
-											%>
-								
-								</div>
-								
-									<input type="productora" id="productora" class="form-control  form-select-lg d-none" name="productora"
-										aria-describedby="passwordHelpInline" value="<%= a.getProductora().getNombre()%>">
+									<div>
+										<%
+										List<Productora> productora = dao.listAllProductoras();
+										out.println("<select name='productora'>");
+										for (Productora pa : productora) {
+											if (pa.getId() == a.getProductora().getId()) {
+										%>
+										<option value="<%=pa.getId()%>" selected><%=pa.getNombre()%></option>
+										<%
+										} else {
+										%>
+										<option value="<%=pa.getId()%>"><%=pa.getNombre()%></option>
+										<%
+										}
+										}
+										%>
+
+									</div>
+
+									<input type="productora" id="productora"
+										class="form-control  form-select-lg d-none" name="productora"
+										aria-describedby="passwordHelpInline"
+										value="<%=a.getProductora().getNombre()%>">
 								</div>
 							</div>
 							<div class="row g-3 align-items-center">
@@ -140,24 +126,24 @@
 									<label for="inputPassword6" class="col-form-label">Sinopsis</label>
 								</div>
 								<div class="col-auto">
-									<textarea name="sinopsis"><%= a.getSinopsis()%></textarea>
+									<textarea name="sinopsis"><%=a.getSinopsis()%></textarea>
 								</div>
 							</div>
-						
+
 						</div>
 					</div>
 			</div>
 			<br />
 			<div>
-			
-			<form action="listaAnimes">
-				<button class="btn btn-secondary" type="submit">Cancelar</button>
-			</form>
-			<button class="btn btn-primary" type="submit">Aceptar</button>
-			</form>
-		</div>
 
-	</div>
+				<form action="listaAnimes">
+					<button class="btn btn-secondary" type="submit">Cancelar</button>
+				</form>
+				<button class="btn btn-primary" type="submit">Aceptar</button>
+				</form>
+			</div>
+
+		</div>
 
 
 
@@ -165,8 +151,9 @@
 
 	<script type="text/javascript">
 		function myFunction() {
-			let txt = document.getElementById("formulario").style.maxWidth = "660px" !IMPORTANT;
-			
+			let txt = document.getElementById("formulario").style.maxWidth = "660px"
+			!IMPORTANT;
+
 			txt.style.maxWidth = "660px";
 		}
 	</script>

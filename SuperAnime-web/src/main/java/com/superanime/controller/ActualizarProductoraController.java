@@ -18,7 +18,10 @@ import com.superanime.modelo.entity.Productora;
 import com.superanime.modelo.entity.Usuario;
 
 /**
- * Servlet implementation class mainController
+ * Servlet implementation class actualizarProductora
+ * para actualizar el productora seleccionado en el jsp
+ * Solo el administrador puede editar una productora, esto se comprueba en el jsp,
+ * dado que si no eres administrador en la ventana principal no tienes acceso al apartado donde se muestran dichas productoras.
  */
 @WebServlet("/actualizarProductora")
 public class ActualizarProductoraController extends HttpServlet {

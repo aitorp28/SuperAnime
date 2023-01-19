@@ -19,7 +19,8 @@ import com.superanime.modelo.entity.Productora;
 import com.superanime.modelo.entity.Usuario;
 
 /**
- * Servlet implementation class mainController
+ * Servlet implementation class aceptarAnime 
+ * para aceptar los animes creados
  */
 @WebServlet("/aceptarAnime")
 public class AceptarAnimeController extends HttpServlet {
@@ -51,7 +52,8 @@ public class AceptarAnimeController extends HttpServlet {
 		Usuario u =(Usuario) sesion.getAttribute("usuario");
 		
 		
-
+		//Recoje el id del anime despues de darle a validar en el apartado visual siendo administrador manda una consulta de actualizacion a la 
+		//base de datos para cambiar de no validado a validado poniendo el valor a 1
 		long id= new Long(request.getParameter("id"));
 		Anime a =  animeDaoImpl.getAnimeById(id);
 		a.setValidado(1);

@@ -16,7 +16,8 @@ import com.superanime.modelo.entity.Anime;
 import com.superanime.modelo.entity.Usuario;
 
 /**
- * Servlet implementation class mainController
+ * Servlet implementation class editarAnime
+ * para editar tus animes en el caso de tener perfil usuario y en el caso del administrador puede editar todos los animes
  */
 @WebServlet("/editarAnime")
 public class EditarAnimeController extends HttpServlet {
@@ -34,8 +35,7 @@ public class EditarAnimeController extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-//		response.getWriter().append("Served at: ").append(request.getContextPath());
+		
 		
 		animeDaoImpl = AnimeDaoImpl.getInstance();
 		
@@ -56,7 +56,7 @@ public class EditarAnimeController extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
+		
 		doGet(request, response);
 	}
 

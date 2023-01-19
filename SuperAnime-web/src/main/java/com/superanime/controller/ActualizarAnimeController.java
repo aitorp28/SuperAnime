@@ -18,7 +18,10 @@ import com.superanime.modelo.entity.Productora;
 import com.superanime.modelo.entity.Usuario;
 
 /**
- * Servlet implementation class mainController
+ * Servlet implementation class actualizarAnime 
+ * para actualizar el anime seleccionado en el jsp
+ * En el caso de ser administrador puede editarlos todos dado que se muestran todos en la tabla
+ * En el caso de ser un usuario normal solo podria editar sus propios animes
  */
 @WebServlet("/actualizarAnime")
 public class ActualizarAnimeController extends HttpServlet {

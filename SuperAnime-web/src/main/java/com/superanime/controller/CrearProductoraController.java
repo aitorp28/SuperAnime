@@ -19,7 +19,8 @@ import com.superanime.modelo.entity.Productora;
 import com.superanime.modelo.entity.Usuario;
 
 /**
- * Servlet implementation class mainController
+ * Servlet implementation class crearProductora
+ * para crear una nueva productora esto solo lo puede hacer un usuario con perfil de administrador
  */
 @WebServlet("/crearProductora")
 public class CrearProductoraController extends HttpServlet {
@@ -40,8 +41,7 @@ public class CrearProductoraController extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-//		response.getWriter().append("Served at: ").append(request.getContextPath());
+		
 		
 		
 		animeDaoImpl = AnimeDaoImpl.getInstance();
@@ -50,7 +50,7 @@ public class CrearProductoraController extends HttpServlet {
 		HttpSession sesion = request.getSession(true); 
 		Usuario u =(Usuario) sesion.getAttribute("usuario");
 		
-		
+		//Comprueba si la productora ya existe y si no esta vacia para poder crearla
 		if(!productoraDaoImpl.existeNombre((request.getParameter("nombre")))&& request.getParameter("nombre") != "") {
 			
 		
@@ -60,7 +60,7 @@ public class CrearProductoraController extends HttpServlet {
 		
 		
 		
-//		Usuario u =(Usuario) request.getAttribute("usuario");
+
 		
 		
 		
@@ -73,16 +73,7 @@ public class CrearProductoraController extends HttpServlet {
     	
 		
 		Productora p = new Productora( nombre,  descripcion, 1);
-//		
-//		a.setNombre(nombre);
-//		a.setGeneros(genero);
-//		a.setSinopsis(sinopsis);
-//		a.setEpisodios(episodios);
-//		a.setProductora(productora);
-//		
-//		a.setValidado(0);
-//		a.setActivo(1);
-//		a.setUsuario(u);
+
 		productoraDaoImpl.addProductora(p);
 		}else {
 			sesion.setAttribute("usuario",u);

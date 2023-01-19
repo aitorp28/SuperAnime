@@ -18,7 +18,8 @@ import com.superanime.modelo.entity.Productora;
 import com.superanime.modelo.entity.Usuario;
 
 /**
- * Servlet implementation class mainController
+ * Servlet implementation class buscarProductora  
+ * para que el usuario pertinente pueda buscar por nombre entre la lista de las productoras presentes
  */
 @WebServlet("/buscarProductora")
 public class BuscarProductoraController extends HttpServlet {
@@ -38,8 +39,7 @@ public class BuscarProductoraController extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-//		response.getWriter().append("Served at: ").append(request.getContextPath());
+		
 		
 		
 		animeDaoImpl = AnimeDaoImpl.getInstance();

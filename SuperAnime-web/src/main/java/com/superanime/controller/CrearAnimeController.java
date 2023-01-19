@@ -19,7 +19,8 @@ import com.superanime.modelo.entity.Productora;
 import com.superanime.modelo.entity.Usuario;
 
 /**
- * Servlet implementation class mainController
+ * Servlet implementation class crearAnime
+ * para crear un nuevo anime ya seas usuario normal o administrador en el caso de no ser nunguno de estos no tienes acceso a este apartado.
  */
 @WebServlet("/crearAnime")
 public class CrearAnimeController extends HttpServlet {
@@ -40,8 +41,7 @@ public class CrearAnimeController extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-//		response.getWriter().append("Served at: ").append(request.getContextPath());
+	
 		
 		
 		animeDaoImpl = AnimeDaoImpl.getInstance();
@@ -50,7 +50,7 @@ public class CrearAnimeController extends HttpServlet {
 		HttpSession sesion = request.getSession(true); 
 		Usuario u =(Usuario) sesion.getAttribute("usuario");
 		
-		
+		//Comprueba si el nombre del anime ya existe en la base de datos y ademas si todos los campos a la hora de crear estan rellenados
 		if(!animeDaoImpl.existeNombre((request.getParameter("nombre")))&& request.getParameter("episodios")!= "" 
 				&& request.getParameter("nombre")!= "" 
 				&& request.getParameter("genero")!= ""
@@ -65,7 +65,7 @@ public class CrearAnimeController extends HttpServlet {
 		int id_productora = Integer.parseInt(request.getParameter("productora"));
 		
 		Productora productora = productoraDaoImpl.getProductoraById(id_productora);
-//		Usuario u =(Usuario) request.getAttribute("usuario");
+
 		
 		
 		
@@ -79,16 +79,7 @@ public class CrearAnimeController extends HttpServlet {
 		
 		Anime a = new Anime( nombre,  genero,  sinopsis,  episodios,  productora,  u,
 				 0,  1);
-//		
-//		a.setNombre(nombre);
-//		a.setGeneros(genero);
-//		a.setSinopsis(sinopsis);
-//		a.setEpisodios(episodios);
-//		a.setProductora(productora);
-//		
-//		a.setValidado(0);
-//		a.setActivo(1);
-//		a.setUsuario(u);
+
 		animeDaoImpl.addAnime(a);
 		}else {
 			sesion.setAttribute("usuario",u);
