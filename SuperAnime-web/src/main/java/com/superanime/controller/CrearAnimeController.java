@@ -51,7 +51,10 @@ public class CrearAnimeController extends HttpServlet {
 		Usuario u =(Usuario) sesion.getAttribute("usuario");
 		
 		
-		if(!animeDaoImpl.existeNombre((request.getParameter("nombre")))&& request.getParameter("episodios")!= "") {
+		if(!animeDaoImpl.existeNombre((request.getParameter("nombre")))&& request.getParameter("episodios")!= "" 
+				&& request.getParameter("nombre")!= "" 
+				&& request.getParameter("genero")!= ""
+				&& request.getParameter("sinopsis")!= "") {
 			
 		
 		
@@ -90,14 +93,15 @@ public class CrearAnimeController extends HttpServlet {
 		}else {
 			sesion.setAttribute("usuario",u);
 			PrintWriter out = response.getWriter();
-	    	 out.println("<script type='text/javascript'>");
-	    	   out.println("alert('User or password incorrect');");
+	    	 out.println("<script type=\"text/javascript\">");
+	    	   out.println("alert('No has introducido nada o los valores introducidos son incorrectos "
+	    	   		+ "porfavor revise los parametros ');");
 	    	   out.println("location='login.jsp';");
 	    	   out.println("</script>");
 			
 		}
 		
-		sesion.setAttribute("usuario",u);
+//		sesion.setAttribute("usuario",u);
 		
 		 
 		 

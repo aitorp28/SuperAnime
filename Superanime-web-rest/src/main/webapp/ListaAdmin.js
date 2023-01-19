@@ -1,6 +1,6 @@
 $(document).ready(()=> {
         $.ajax({
-            url:'http://localhost:8081/api/animesCliente',
+            url:'http://localhost:8081/api/animesAdmin',
             type: 'GET',
             dataType: 'json',
             success: function(res){
@@ -10,9 +10,11 @@ $(document).ready(()=> {
 						<tr>
 							<td>${element.id}</td>
 							<td>${element.nombre}</td>
-							<td>${element.apellidos}</td>
-							<td>${element.curso}</td>
-							<td>${element.nota}</td>
+							<td>${element.episodios}</td>
+							<td>${element.generos}</td>
+							<td>${element.productora.nombre}</td>
+							<td>${element.usuario.email}</td>
+							
 						</tr>
 					`
 				    });

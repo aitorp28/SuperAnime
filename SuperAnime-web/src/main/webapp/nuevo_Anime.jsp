@@ -57,7 +57,7 @@
 
 			</div>
 			<div class="d-flex  justify-content-sm-center">
-				<form action="crearAnime" id="formulario">
+				<form action="crearAnime" id="formulario" method="post">
 
 
 					<div class="row row-col align-items-center justify-content-center" id="center">
@@ -83,7 +83,7 @@
 									<label for="inputNombre" pattern="^[\s\S]{0,25}$" class="col-form-label">Nombre</label>
 								</div>
 								<div class="col-auto">
-									<input type="text" id="nombre" placeholder="25 caracteres max" pattern="[a-zA-Z]{1,25}" name="nombre" class="form-control"
+									<input type="text" id="nombre" placeholder="25 caracteres max" maxlength="25" name="nombre" class="form-control"
 										aria-describedby="nombre" value="">
 									
 									
@@ -93,7 +93,7 @@
 									<label for="inputGenero" class="col-form-label">Genero</label>
 								</div>
 								<div class="col-auto">
-									<input type="text" id="genero" placeholder="25 caracteres max" pattern="[a-zA-Z]{1,25}" name="genero" class="form-control"
+									<input type="text" id="genero" placeholder="25 caracteres max" maxlength="25" name="genero" class="form-control"
 										aria-describedby="genero" value="">
 								</div>
 							</div>
@@ -137,7 +137,7 @@
 									<label for="inputPassword6" class="col-form-label">Sinopsis</label>
 								</div>
 								<div class="col-auto">
-									<textarea name="sinopsis"></textarea>
+									<textarea name="sinopsis" maxlength="200"></textarea>
 								</div>
 							</div>
 						

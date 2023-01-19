@@ -72,12 +72,7 @@
 						<div class=" row">
 
 
-							<!-- 
-					Nombre <input type="text" width=" !IMPORTANT 20px"> Genero
-					<input type="text"> Episodios <input type="text">
-
-					Productora <input type="text"> Sinopsis
-					<textarea></textarea> -->
+						
 		
 				
 						
@@ -86,7 +81,7 @@
 									<label for="inputPassword6" class="col-form-label">Nombre</label>
 								</div>
 								<div class="col-auto">
-									<input type="text" id="nombre"  name="nombre" class="form-control"
+									<input type="text" id="nombre" placeholder="15 caracteres max" maxlength="20" name="nombre" class="form-control"
 										aria-describedby="nombre" value="">
 									
 									

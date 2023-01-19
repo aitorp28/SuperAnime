@@ -30,23 +30,23 @@
 					<div class="row">
 
 						<div class="col">
-							<form class="d-grid gap-2" action="filtrarSinValidar">
+							<form class="d-grid gap-2" action="filtrarValidados">
 
 
 								
-								<form action="filtrarSinValidar">
+								<form action="filtrarValidados">
 								<button class="btn btn-outline-secondary" type="submit">Animes
-									Sin Aceptar</button>
+									validados</button>
 									</form>
 								
 							</form>
 						</div>
 						<div class="col">
-							<form class="d-grid gap-2 " action="filtrarValidados">
+							<form class="d-grid gap-2 " action="filtrarTodos">
 								
-								<form action="filtrarValidados">
-								<button class="btn btn-outline-secondary" type="submit">Animes
-									General</button>
+								<form action="filtrarTodos">
+								<button class="btn btn-outline-secondary" type="submit">Todos los animes
+								</button>
 									</form>
 									
 								
@@ -56,14 +56,7 @@
 						<div class="col">
 							
 						</div>
-						<div class="col">
-							<form class="d-flex" action="buscarAnime">
-								<input class="form-control me-2" type="search"
-									placeholder="Search" aria-label="Search" name="nombre"id="buscar">
-								<button class="btn btn-outline-success" onclick="" type="submit">Search</button>
-							</form>
-						</div>
-					</div>
+											</div>
 				</div>
 
 <script type="text/javascript">
@@ -80,7 +73,6 @@ var texto=	document.getElementById("buscar").text;
 
 
 </script>
- <script src="ListaJs.js"></script>
 
 
 				<table class="table">
@@ -113,11 +105,35 @@ var texto=	document.getElementById("buscar").text;
 					</thead>
 					<tbody id='tbody'>
 					
-					
-						switch(lista){
- 								case "Cliente":
-               <script ... ref="listaCliente.js"> </script>
-									}
+                        
+                        <%
+                           
+                           String lista = (String)request.getAttribute("lista");
+                           if(lista!=null){
+         switch(lista){
+            case "cliente":
+               out.println("<script type='text/javascript' src='ListaCliente.js'> </script>");
+               break;
+           case "admin":
+             out.println("<script type='text/javascript' src='ListaAdmin.js'> </script>");
+               break;
+            	
+           
+            default:
+                out.println("<script type='text/javascript' src='ListaAdmin.js'> </script>");
+         }
+                           }else{
+                              out.println("<script type='text/javascript' src='ListaAdmin.js'> </script>");
+                           }
+      %> 
+                        
+                        
+                        
+                   
+                       
+				
+               
+									
 					
 					
 					
