@@ -4,6 +4,10 @@ Este proyecto está enfocado a crear una web que muestra a los usuarios la mayor
 ## Tecnologías usadas
 Para llevar a cabo este proyecto se han utilizado las siguientes tecnologías: JavaScript, Boostrap, JSP, HTML5, CSS, Servlet, Java, Spring Boot y API REST. Todo esto se ha realizado en el entorno de desarrollo de Eclipse y Spring Tool Suite 4.
 
+Tecnologias usadas en el apartado de vista hemos usado javaScript para dar funcionalidad a ciertos botones para lanzar un formulario ademas de aplicar css con ello
+tambien usamos jquery para crear un carousel de imagenes en el apartado de inicio. Estas dos tecnologias an sido usadas para facilitar todo el trabajo en el apartado visual
+y este sea mas dinamico
+
 ## Proyectos
 
 ### Superanime-Modelo
@@ -35,8 +39,8 @@ Disponemos de dos tablas con una relación 1:N las cuales son Animes y Productor
 
 ## Instalación
 
-Antes de realizar está instalación es necesario tener instalado los entornos de desarrollo de Eclipse y Spring Tool Suit 4 , tener XAMPP o alguna otra aplicación que active la conexión con la bbdd y crear la bbdd con el nombre de superanime e tener una versión de Tomcat instalada.Para poder iniciar esta aplicación hay que entrar desde a [github](https://github.com/aitorp28/SuperAnime) 
-![como descargar desde guthub](/documentacion/github_download.PNG)
+Antes de realizar está instalación es necesario tener instalado los entornos de desarrollo de [Eclipse](https://www.eclipse.org/downloads/)  y [Spring Tool Suit 4](https://spring.io/tools) , tener [XAMPP](https://www.apachefriends.org/es/download.html) y clickar en start en el apartado de MySQL o alguna otra aplicación que active la conexión con la bbdd y crear la bbdd con el nombre de superanime e tener el [Tomcat 9.0](https://tomcat.apache.org/download-90.cgi) el cual va ha ser el servidor.Para poder iniciar esta aplicación hay que entrar desde a [github](https://github.com/aitorp28/SuperAnime) 
+![como descargar desde github](/documentacion/github_download.PNG)
 Una vez descargado el zip, hay que descompromirlo y dentro de eclipse importar el proyecto File>Import>Maven Project>../SuperAnime-Model
 Al haber terminado de importar hay que hacer click derecho en la raíz del proyecto>Run As>Maven Install.
-Tras terminarlo podemos importar el proyecto de Superanime-Web añadimos el proyecto al Tomcat, iniciamos el proyecto y publicamos mediante el [enlace](localhost:8080/web/vistaInicio)  
+Tras terminarlo podemos importar el proyecto de Superanime-Web añadimos el proyecto al Tomcat, iniciamos el proyecto y publicamos mediante el siguiente [enlace](http://localhost:8080/SuperAnime-We/index.jsp)  
