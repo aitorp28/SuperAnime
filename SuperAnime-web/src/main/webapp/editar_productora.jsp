@@ -115,6 +115,7 @@
 	</div>
 
 	<script type="text/javascript">
+	/* Funcion para aplicar css a la id tipo formulario */
 		function myFunction() {
 			let txt = document.getElementById("formulario").style.maxWidth = "378px" !IMPORTANT;
 			

@@ -19,7 +19,9 @@ import com.superanime.modelo.entity.Productora;
 import com.superanime.modelo.entity.Usuario;
 
 /**
- * Servlet implementation class mainController
+ * Servlet implementation class eliminarAnime
+ * para hacer un borrado logico, teniendo el perfil de usuario (user) eliminariamos nuestro anime pero 
+ * en el caso de tener  perfil admin verias todos los animes y el boton de eliminar se mostraria como activar esto esta controlado en la vista
  */
 @WebServlet("/eliminarAnime")
 public class EliminarAnimeController extends HttpServlet {

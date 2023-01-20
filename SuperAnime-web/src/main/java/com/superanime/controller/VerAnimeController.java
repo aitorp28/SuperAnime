@@ -16,7 +16,9 @@ import com.superanime.modelo.entity.Anime;
 import com.superanime.modelo.entity.Usuario;
 
 /**
- * Servlet implementation class mainController
+ * Servlet implementation class verAnime
+ * para redireccionar a la venta de ver animes llevando la sesion del usuario logeado 
+ * 
  */
 @WebServlet("/verAnime")
 public class VerAnimeController extends HttpServlet {
@@ -38,13 +40,13 @@ public class VerAnimeController extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 //		response.getWriter().append("Served at: ").append(request.getContextPath());
-usuarioDaoImpl=	UsuarioDaoImpl.getInstance();
+		usuarioDaoImpl=	UsuarioDaoImpl.getInstance();
 		
 
-animeDaoImpl = AnimeDaoImpl.getInstance();
+	animeDaoImpl = AnimeDaoImpl.getInstance();
 
-long id= new Long(request.getParameter("id"));
-Anime a =  animeDaoImpl.getAnimeById(id);
+	long id= new Long(request.getParameter("id"));
+	Anime a =  animeDaoImpl.getAnimeById(id);
 
 
 

@@ -19,7 +19,8 @@ import com.superanime.modelo.entity.Productora;
 import com.superanime.modelo.entity.Usuario;
 
 /**
- * Servlet implementation class mainController
+ * Servlet implementation class nuevoAnime
+ * para ir a la tabla para crear un nuevo anime
  */
 @WebServlet("/nuevoAnime")
 public class NuevoAnimeController extends HttpServlet {

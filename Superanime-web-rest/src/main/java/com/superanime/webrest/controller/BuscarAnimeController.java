@@ -19,7 +19,8 @@ import com.superanime.modelo.entity.Productora;
 import com.superanime.modelo.entity.Usuario;
 
 /**
- * Servlet implementation class mainController
+ * Servlet implementation class buscarAnime
+ * 
  */
 @WebServlet("/buscarAnime")
 public class BuscarAnimeController extends HttpServlet {

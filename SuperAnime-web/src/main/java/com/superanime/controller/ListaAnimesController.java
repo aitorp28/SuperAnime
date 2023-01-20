@@ -15,7 +15,9 @@ import com.superanime.modelo.dao.UsuarioDaoImpl;
 import com.superanime.modelo.entity.Usuario;
 
 /**
- * Servlet implementation class mainController
+ * Servlet implementation class listaAnimes
+ * para redireccionar desde cualquier apartado dando al boton de animes para mostrar en el caso de tener perfil usuario solo verias tus animes
+ * en el caso de tener perfil administrador verias todos los animes
  */
 @WebServlet("/listaAnimes")
 public class ListaAnimesController extends HttpServlet {

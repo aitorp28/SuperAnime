@@ -18,7 +18,8 @@ import com.superanime.modelo.entity.Productora;
 import com.superanime.modelo.entity.Usuario;
 
 /**
- * Servlet implementation class mainController
+ * Servlet implementation class editarProductora
+ * para editar las productoras existentes cuando el perfil del usuario es administrador
  */
 @WebServlet("/editarProductora")
 public class EditarProductoraController extends HttpServlet {

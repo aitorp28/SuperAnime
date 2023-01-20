@@ -19,7 +19,8 @@ import com.superanime.modelo.entity.Productora;
 import com.superanime.modelo.entity.Usuario;
 
 /**
- * Servlet implementation class mainController
+ * Servlet implementation class nuevaProductora
+ * para abrir el jsp de la tabla para crear una nueva productora teniendo el perfil de admin
  */
 @WebServlet("/nuevaProductora")
 public class NuevaProductoraController extends HttpServlet {

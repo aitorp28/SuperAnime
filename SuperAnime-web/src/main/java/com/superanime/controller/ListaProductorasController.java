@@ -16,7 +16,11 @@ import com.superanime.modelo.dao.UsuarioDaoImpl;
 import com.superanime.modelo.entity.Usuario;
 
 /**
- * Servlet implementation class mainController
+ * Servlet implementation class listaProductoras
+ * para redireccionar desde cualquier apartado dando al boton de animes para mostrar en el caso de tener perfil usuario no podrias 
+ * ver productoras por que no tiene accceso a este apartado se controla en la vista
+ * en el caso de tener perfil administrador verias todas las productoras
+ * 
  */
 @WebServlet("/listaProductoras")
 public class ListaProductorasController extends HttpServlet {

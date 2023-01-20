@@ -14,7 +14,10 @@ import com.superanime.modelo.dao.UsuarioDaoImpl;
 import com.superanime.modelo.entity.Usuario;
 
 /**
- * Servlet implementation class mainController
+ * Servlet implementation class vistaInicio
+ * para redireccionar a la vista de inicio llevando el usuario en la sesion
+ * 
+ * 
  */
 @WebServlet("/vistaInicio")
 public class VistaInicioController extends HttpServlet {

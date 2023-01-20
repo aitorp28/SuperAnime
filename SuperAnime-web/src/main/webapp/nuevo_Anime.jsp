@@ -71,6 +71,7 @@
 					Productora <input type="text"> Sinopsis
 					<textarea></textarea> -->
 					<%
+					
 					Anime a = (Anime) request.getAttribute("anime");
 					
 					ProductoraDaoImpl dao = null;
@@ -111,7 +112,7 @@
 								<div class="col-auto">
 								<div>
 								<%
-								
+								//Lista las productoras existentes en la base de datos
 									List<Productora> productora = dao.listAllProductoras();
  									out.println("<select name='productora'>");
 											for (Productora pa : productora){
@@ -159,7 +160,7 @@
 	</div>
 
 <script type="text/javascript">
-
+//funcion para ejecutar el form en el boton especifico
 	function crearAnime() {
 		 document.crearAnime.submit()
 	}

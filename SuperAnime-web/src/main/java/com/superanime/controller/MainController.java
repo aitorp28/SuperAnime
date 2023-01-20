@@ -15,6 +15,7 @@ import com.superanime.modelo.entity.Usuario;
 
 /**
  * Servlet implementation class mainController
+ * para ir a la vista de login se controla en la vista
  */
 @WebServlet("/mainController")
 public class MainController extends HttpServlet {

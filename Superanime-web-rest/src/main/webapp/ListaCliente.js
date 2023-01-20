@@ -1,3 +1,4 @@
+//Script ajax para consumir la api con sus datos
 $(document).ready(()=> {
         $.ajax({
             url:'http://localhost:8081/api/animesCliente',

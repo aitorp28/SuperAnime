@@ -120,21 +120,11 @@
 			}
 			else 
 			{
-			/* alert('Code has accepted : you can try another'); */
-			
+		
 			}
 				
 
-	/* 		if (usuario.length == 0) {
-				alert('No has escrito nada en el usuario');
-				return;
-			}
-			var clave = document.getElementById('password').value;
-			if (clave.length < 6) {
-				alert('La clave no es válida');
-				return;
-			} */
-
+	
 			this.submit();
 
 		}

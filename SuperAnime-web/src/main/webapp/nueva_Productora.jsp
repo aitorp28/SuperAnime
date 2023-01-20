@@ -48,6 +48,7 @@
             </div>
         </section> -->
         			<%
+        			
 					Productora p = (Productora) request.getAttribute("productora");
 					
 					ProductoraDaoImpl dao = null;

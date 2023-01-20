@@ -17,6 +17,7 @@
                      
                         <li class="nav-item">
                         <% 
+                        //Comprueba si el usuario si es nulo o no
                         if (username!= null ){
                         %>
                         
@@ -35,6 +36,7 @@
                         
                                            <li class="nav-item">
                         <% 
+                        //Comprueba si el usuario es nolo y si su perfil es administrador
                         if (username!= null && username.getPerfil().equals("admin")){
                         %>
                         
@@ -56,7 +58,7 @@
  -->  
  
  <%
-     
+//Comprueba si el usuario si es nulo o no
         if(username==null)  {
     %>  
        <form action = "mainController" class="d-flex" role="search">          
@@ -87,15 +89,15 @@
             </div>
         </nav>
 <script type="text/javascript">
-
+	//funcion para mandar el formulario asignado a un boton
 	function verAnimes() {
 		 document.animes.submit()
 	}
-
+	//funcion para mandar el formulario asignado a un boton
 	function verProductoras() {
 		 document.productoras.submit()
 	}
-	
+	//funcion para mandar el formulario asignado a un boton
 	function verInicio() {
 		 document.verinicio.submit()
 	}
