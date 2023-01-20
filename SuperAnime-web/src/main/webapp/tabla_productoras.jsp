@@ -75,6 +75,7 @@
 						<tr>
 
 							<%
+							//Carga todas la productoras de la base de datos
 							Productora p = null;
 							
 							List<Productora> productoras = null;

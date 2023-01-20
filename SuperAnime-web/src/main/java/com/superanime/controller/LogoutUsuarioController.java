@@ -13,7 +13,8 @@ import javax.servlet.http.HttpSession;
 import com.superanime.modelo.entity.Usuario;
 
 /**
- * Servlet implementation class mainController
+ * Servlet implementation class logoutUsuario
+ * para cerrar la sesion del usuario que ha iniciado sesion 
  */
 @WebServlet("/logoutUsuario")
 public class LogoutUsuarioController extends HttpServlet {

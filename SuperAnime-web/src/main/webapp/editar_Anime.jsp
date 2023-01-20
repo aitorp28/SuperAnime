@@ -97,7 +97,9 @@
 								</div>
 								<div class="col-auto">
 									<div>
+									
 										<%
+										/* Lista todas las productoras disponibles  */
 										List<Productora> productora = dao.listAllProductoras();
 										out.println("<select name='productora'>");
 										for (Productora pa : productora) {
@@ -150,6 +152,7 @@
 	</div>
 
 	<script type="text/javascript">
+	/* Funcion para aplicar css a la id tipo formulario */
 		function myFunction() {
 			let txt = document.getElementById("formulario").style.maxWidth = "660px"
 			!IMPORTANT;

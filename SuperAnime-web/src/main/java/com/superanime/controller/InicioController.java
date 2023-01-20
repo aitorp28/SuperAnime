@@ -16,7 +16,11 @@
 	import com.superanime.modelo.entity.Usuario;
 
 	/**
-	 * Servlet implementation class mainController
+	 * Servlet implementation class inicio
+	 * para comprobar si el usuario introducido existe en la base de datos en la caso de existir te logearias 
+	 * y te redireccionaria a la pagina inicial.
+	 * En el caso de no conincidir saltaria una alerta que los campos introducidos son incorrectos.
+	 * 
 	 */
 	@WebServlet("/inicio")
 	public class InicioController extends HttpServlet {

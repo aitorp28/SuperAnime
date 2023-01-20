@@ -43,6 +43,7 @@ String currentDate = ft.format(dNow);
 
 
 	<script type="text/javascript">
+	//Funcion para añadir por jquey css y con ello poner un gif en el footer
 		$(document)
 				.ready(
 						function() {

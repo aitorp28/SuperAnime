@@ -19,7 +19,9 @@ import com.superanime.modelo.entity.Productora;
 import com.superanime.modelo.entity.Usuario;
 
 /**
- * Servlet implementation class mainController
+ * Servlet implementation class filtrarSinValidar
+ * para filtrar en el apartado de anime todos los animes que no estan validados por el administrador solo el perfil de administrador 
+ * tiene acceso a este boton esto se controla en la vista
  */
 @WebServlet("/filtrarSinValidar")
 public class filtrarSinValidarAnimeController extends HttpServlet {
@@ -53,7 +55,7 @@ public class filtrarSinValidarAnimeController extends HttpServlet {
 		
 		
 		
-		
+		//Trae de la base de datos todos lo animes no validados
 		List<Anime> animes = animeDaoImpl.listAllAnimesNoValidados();
 	
 		request.setAttribute("animes", animes);

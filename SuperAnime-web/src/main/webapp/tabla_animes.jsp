@@ -134,7 +134,7 @@ var texto=	document.getElementById("buscar").text;
 						<tr>
 							
 								<%
-								
+								/*Carga todos los animes dependiendo de tu perfil en el caso de ser user carga tus animes y admin carga todos*/
 
 								Anime a = null;
 								ArrayList<Anime> animes = new ArrayList<>();
@@ -154,7 +154,8 @@ var texto=	document.getElementById("buscar").text;
 									}else{
 									              animes =(ArrayList<Anime>) request.getAttribute("animes");
 									}
-
+							
+								
 								for (int i = 0; i < animes.size(); i++) {
 								%>
 								<form action="editarAnime">
@@ -186,6 +187,7 @@ var texto=	document.getElementById("buscar").text;
 									
 										<form action="eliminarAnime">
 										<%
+										//Comprueba si el anime esta activo o no 
 										out.println("<input  name='id' class='d-none' value=" + anime.getId() + ">");
 										if(anime.getActivo()== 1){
 										out.println("<td><button class='btn btn-danger' type='submit'>Borrar</button></td>");
@@ -194,6 +196,7 @@ var texto=	document.getElementById("buscar").text;
 										</form>
 										<form action="activarAnime">
 										<%
+										//Comprueba si el anime esta activo o no 
 										if(anime.getActivo()== 0){
 											out.println("<input  name='id' class='d-none' value=" + anime.getId() + ">");
 											out.println("<td><button class='btn btn-warning' type='submit'>Activar</button></td>");

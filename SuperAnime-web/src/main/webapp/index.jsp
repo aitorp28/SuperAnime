@@ -190,7 +190,7 @@
 
             <div class="row align-items-center">
            <%
-           
+           //Bucle para cargar los animes en la ventana pruncipal
            
            animes = dao.listAllAnimesCliente();
            if(animes.size()!= 0){

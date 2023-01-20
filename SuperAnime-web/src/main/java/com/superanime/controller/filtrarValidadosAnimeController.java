@@ -19,7 +19,9 @@ import com.superanime.modelo.entity.Productora;
 import com.superanime.modelo.entity.Usuario;
 
 /**
- * Servlet implementation class mainController
+ * Servlet implementation class filtrarValidados
+ * para filtrar en el apartado de anime todos los animes que estan validados por el administrador solo el perfil de administrador 
+ * tiene acceso a este boton esto se controla en la vista
  */
 @WebServlet("/filtrarValidados")
 public class filtrarValidadosAnimeController extends HttpServlet {
@@ -53,7 +55,7 @@ public class filtrarValidadosAnimeController extends HttpServlet {
 		
 		
 		
-		
+		//Trae de la base de datos todos lo animes validados
 		List<Anime> animes = animeDaoImpl.listAllAnimesValidados();
 	
 		request.setAttribute("animes", animes);

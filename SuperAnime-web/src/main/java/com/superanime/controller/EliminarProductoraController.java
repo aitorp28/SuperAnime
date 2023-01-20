@@ -19,7 +19,8 @@ import com.superanime.modelo.entity.Productora;
 import com.superanime.modelo.entity.Usuario;
 
 /**
- * Servlet implementation class mainController
+ * Servlet implementation class eliminarProductora
+ * para hacer un borrado logico de la productora y solo podria hacerlo el usuario con perfil administrador esto esta controla en la vista
  */
 @WebServlet("/eliminarProductora")
 public class EliminarProductoraController extends HttpServlet {
