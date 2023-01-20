@@ -19,7 +19,9 @@ import com.superanime.modelo.entity.Productora;
 import com.superanime.modelo.entity.Usuario;
 
 /**
- * Servlet implementation class mainController
+ * Servlet implementation class filtrarValidados
+ * para filtrar todos los animes que estan validados
+ * 
  */
 @WebServlet("/filtrarValidados")
 public class filtrarValidadosAnimeController extends HttpServlet {

@@ -107,7 +107,7 @@ var texto=	document.getElementById("buscar").text;
 					
                         
                         <%
-                           
+                          
                            String lista = (String)request.getAttribute("lista");
                            if(lista!=null){
          switch(lista){

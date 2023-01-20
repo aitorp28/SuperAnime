@@ -19,7 +19,8 @@ import com.superanime.modelo.entity.Productora;
 import com.superanime.modelo.entity.Usuario;
 
 /**
- * Servlet implementation class mainController
+ * Servlet implementation class filtrarTodos
+ * para filtrar todos los animes existentes
  */
 @WebServlet("/filtrarTodos")
 public class ListaAnimeAdmin extends HttpServlet {
