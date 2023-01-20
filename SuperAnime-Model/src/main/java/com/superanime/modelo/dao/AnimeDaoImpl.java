@@ -24,6 +24,10 @@ public class AnimeDaoImpl implements AnimeDao {
 		return INSTANCE;
 	}
 
+	/**
+	 * Metodo para mostrar todos los animes validados y activos
+	 * @return ArrayList<Anime>
+	 */
 	@SuppressWarnings("unchecked")
 	public ArrayList<Anime> listAllAnimesCliente() {
 
@@ -36,7 +40,11 @@ public class AnimeDaoImpl implements AnimeDao {
 
 		return animes;
 	}
-
+	
+	/**
+	 * Metodo para mostrar todos los animes
+	 * @return ArrayList<Anime>
+	 */
 	@SuppressWarnings("unchecked")
 	public ArrayList<Anime> listAllAnimesAdmin() {
 		ArrayList<Anime> animes;
@@ -50,6 +58,12 @@ public class AnimeDaoImpl implements AnimeDao {
 
 		return animes;
 	}
+	
+	/**
+	 * Metodo para mostrar todos los animes no validados
+	 * @param id Id del Usuario
+	 * @return ArrayList<Anime>
+	 */
 	@SuppressWarnings("unchecked")
 	public ArrayList<Anime> listAllAnimesNoValidados() {
 		ArrayList<Anime> animes;
@@ -63,6 +77,11 @@ public class AnimeDaoImpl implements AnimeDao {
 
 		return animes;
 	}
+	/**
+	 * Metodo para mostrar todos los animes validados
+	 * @param id Id del Usuario
+	 * @return ArrayList<Anime>
+	 */
 	@SuppressWarnings("unchecked")
 	public ArrayList<Anime> listAllAnimesValidados() {
 		ArrayList<Anime> animes;
@@ -76,6 +95,11 @@ public class AnimeDaoImpl implements AnimeDao {
 
 		return animes;
 	}
+	/**
+	 * Metodo para mostrar los animes creados por el usuario enviado
+	 * @param id Id del Usuario
+	 * @return ArrayList<Anime>
+	 */
 	@SuppressWarnings("unchecked")
 	public ArrayList<Anime> listAnimesUser(long id) {
 
@@ -97,6 +121,11 @@ public class AnimeDaoImpl implements AnimeDao {
 
 		return animes;
 	}
+	/**
+	 * Metodo para mostrar los animes que incluyen parte del nombre enviado
+	 * @param nombre Nombre/parte de nombre que puede incluir los animes
+	 * @return List<Anime>
+	 */
 	@SuppressWarnings("unchecked")
 	public List<Anime> findFilterByName(String nombre) {
 		ArrayList<Anime> animes;
@@ -113,6 +142,10 @@ public class AnimeDaoImpl implements AnimeDao {
 
 		return animes;
 	}
+	/**
+	 * Metodo para comprobar si el nombre insertado existe ya dado a que el campo en la bbdd es unico
+	 * @return boolean Devuelve false cuando no encuentra el nombre en la base de datos, true si ya existe el nombre de la bbdd
+	 */
 	public boolean existeNombre(String nombre) {
 		Anime anime;
 		EntityManager em = EntityManagerGestor.crearEntityManager();
@@ -128,6 +161,11 @@ public class AnimeDaoImpl implements AnimeDao {
 
 		return anime != null;
 	}
+	/**
+	 * Metodo para mostrar los animes con el nombre enviado
+	 * @param nombre Nombre del Anime
+	 * @return ArrayList<Anime>
+	 */
 	@SuppressWarnings("unchecked")
 	public ArrayList<Anime> listAnimesByNombre(String nombre) {
 
@@ -149,7 +187,11 @@ public class AnimeDaoImpl implements AnimeDao {
 
 		return animes;
 	}
-
+	/**
+	 * Metodo para mostrar los animes por la productora enviada
+	 * @param id Id de la Productora
+	 * @return ArrayList<Anime>
+	 */
 	@SuppressWarnings("unchecked")
 	public ArrayList<Anime> listAnimesByProductora(long id) {
 
@@ -171,7 +213,11 @@ public class AnimeDaoImpl implements AnimeDao {
 
 		return animes;
 	}
-
+	
+	/**
+	 * Metodo para añadir el anime en la bbdd
+	 * @return Anime
+	 */
 	public Anime addAnime(Anime anime) {
 
 		EntityManager em = EntityManagerGestor.crearEntityManager();
@@ -186,7 +232,11 @@ public class AnimeDaoImpl implements AnimeDao {
 
 		return anime;
 	}
-
+	/**
+	 * Metodo para borrar de manera logica un anime
+	 * En caso de que no sea borrado devuelve false
+	 * @return boolean
+	 */
 	public boolean deleteLogicoAnime(long id) {
 		boolean borrado=true;
 		EntityManager em = EntityManagerGestor.crearEntityManager();
@@ -210,7 +260,10 @@ public class AnimeDaoImpl implements AnimeDao {
 		
 		return borrado;
 	}
-
+	/**
+	 * Metodo para actualizar el anime
+	 * En caso de que no este activo lo cambio ha activo
+	 */
 	public void updateAnime(Anime anime) {
 
 		EntityManager em = EntityManagerGestor.crearEntityManager();
@@ -223,7 +276,11 @@ public class AnimeDaoImpl implements AnimeDao {
 		em.close();
 
 	}
-
+	/**
+	 * Metodo para buscar el anime por su id
+	 * @param id Id del Anime
+	 * @return Anime
+	 */
 	public Anime getAnimeById(long id) {
 		Anime anime;
 		EntityManager em = EntityManagerGestor.crearEntityManager();
