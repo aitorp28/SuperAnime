@@ -23,7 +23,10 @@ public class ProductoraDaoImpl implements ProductoraDao {
 		}
 		return INSTANCE;
 	}
-
+	/**
+	 * Metodo para mostrar todos las productoras
+	 * @return ArrayList<Productora>
+	 */
 	@SuppressWarnings("unchecked")
 	public List<Productora> listAllProductoras() {
 		EntityManager em = EntityManagerGestor.crearEntityManager();
@@ -35,7 +38,11 @@ public class ProductoraDaoImpl implements ProductoraDao {
 
 		return productoras;
 	}
-
+	/**
+	 * Metodo para mostrar las productoras que incluyen parte del nombre enviado
+	 * @param nombre Nombre/parte de nombre que puede incluir las productoras
+	 * @return List<Productora>
+	 */
 	@SuppressWarnings("unchecked")
 	public List<Productora> findFilterByName(String nombre) {
 		ArrayList<Productora> productoras;
@@ -52,7 +59,10 @@ public class ProductoraDaoImpl implements ProductoraDao {
 
 		return productoras;
 	}
-
+	/**
+	 * Metodo para añadir la productora en la bbdd
+	 * @return Productora
+	 */
 	public Productora addProductora(Productora productora) {
 		EntityManager em = EntityManagerGestor.crearEntityManager();
 
@@ -66,7 +76,10 @@ public class ProductoraDaoImpl implements ProductoraDao {
 
 		return productora;
 	}
-
+	/**
+	 * Metodo para comprobar si el nombre insertado existe ya dado a que el campo en la bbdd es unico
+	 * @return boolean Devuelve false cuando no encuentra el nombre en la base de datos, true si ya existe el nombre de la bbdd
+	 */
 	public boolean existeNombre(String nombre) {
 		Productora productora;
 		EntityManager em = EntityManagerGestor.crearEntityManager();
@@ -82,7 +95,11 @@ public class ProductoraDaoImpl implements ProductoraDao {
 
 		return productora != null;
 	}
-
+	/**
+	 * Metodo para borrar de manera logica una productora
+	 * En caso de que no sea borrado devuelve false
+	 * @return boolean
+	 */
 	public boolean deleteLogicoProductora(long id) {
 		boolean borrado = true;
 		EntityManager em = EntityManagerGestor.crearEntityManager();
@@ -105,7 +122,10 @@ public class ProductoraDaoImpl implements ProductoraDao {
 		em.close();
 		return borrado;
 	}
-
+	/**
+	 * Metodo para actualizar la productora
+	 * En caso de que no este activo lo cambio ha activo
+	 */
 	public void updateProductora(Productora productora) {
 		EntityManager em = EntityManagerGestor.crearEntityManager();
 
@@ -120,7 +140,11 @@ public class ProductoraDaoImpl implements ProductoraDao {
 		em.close();
 
 	}
-
+	/**
+	 * Metodo para buscar la productora por su id
+	 * @param id Id del Productora
+	 * @return Productora
+	 */
 	public Productora getProductoraById(long id) {
 		Productora productora;
 		EntityManager em = EntityManagerGestor.crearEntityManager();

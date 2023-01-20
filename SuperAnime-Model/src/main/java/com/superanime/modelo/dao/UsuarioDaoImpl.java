@@ -20,7 +20,10 @@ public class UsuarioDaoImpl implements UsuarioDao {
 		}
 		return INSTANCE;
 	}
-
+	/**
+	 * Metodo para comprobar que el usuario pasado como parametro existe en la bbdd
+	 * @return Usuario usuario nulo en caso de que no coincida con 
+	 */
 	public Usuario comprobarUsuario(String email,String password) {
 		Usuario usuario;
 		EntityManager em = EntityManagerGestor.crearEntityManager();
