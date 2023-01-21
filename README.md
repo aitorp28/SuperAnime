@@ -17,7 +17,7 @@ El Superanime-Modelo es donde se crean las entidades de Usuario, Anime y Product
 De esta manera facilitando el funcionamiento de la página haciendo llamadas a métodos contenidos en el proyecto previamente dicho.
 
 ### Superanime-Rest
-El Superanime-Rest es el proyecto que se cean los diferentes métodos que llaman al DAO del Superanime-Rest mediante la capa de Service el cual puede ser usado por terceras empresas. Facilitando así la consumación de datos para terceros.
+El Superanime-Rest es el proyecto que se crean los diferentes métodos que llaman al DAO del Superanime-Rest mediante la capa de Service el cual puede ser usado por terceras empresas. Facilitando así la consumación de datos para terceros.
 
 ### Superanime-Web
 Superanime-Web es la parte visual del proyecto, tiene las páginas y los controladores los cuales enlazan la web con la capa Modelo para realizar el acceso a los datos haciendo esto de una manera mas dinámica y a su vez facilitando al usuario cualquier gestión de la información en un apartado comodo, gráfico y sencillo.
@@ -53,7 +53,7 @@ Después de añadirlo y publicar, para acceder a la página pondremos en nuestro
 Al cargar la página ya se habrán creado las tablas en la bbdd anterionmente creada con lo que para tener acceso a la página recomiendo insertar el siguiente [script](/documentacion/script.sql) de la bbdd el cual inserta un juego de datos.
 
 Para realizar la instalación de la API REST debemos abrir el IDE de Spring Tool Suit 4 e importar el proyecto siguiendo los mismo pasos realizados. Una vez realizado esto importaremos el proyecto de SuperAnime-web-rest de la misma manera.
-Una vez realizado esto debemos hace el haz and remove del proyecto web REST e iniciar el royecto rest en el boot dashboard
+Una vez realizado esto debemos hace el haz and remove del proyecto web REST e iniciar el proyecto rest en el boot dashboard
 ![add and remove web REST](/documentacion/add_remove_rest.PNG)
 ![dashboard REST](/documentacion/dashboard.png)
 
