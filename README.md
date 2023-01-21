@@ -45,7 +45,7 @@ Una vez descargado el zip, hay que descomprimirlo y dentro de eclipse importar e
 Al haber terminado de importar hay que hacer click derecho en la raíz del proyecto>Run As>Maven Install.
 ![como realizar el Maven install](/documentacion/maven_install.PNG)
 Tras terminarlo podemos importar el proyecto de Superanime-Web siguiendo los pasos mencionados en el SuperAnime-Model. Al importarlo tenemos que añadirlo en el tomcat (en caso de duda es recomendable seguir [este](https://jesusfernandeztoledo.com/instalar-eclipse-e-incluir-tomcat-en-eclipse/) tutorial pero en nuestro caso con la versión 9.0 de Tomcat)
-![como añadir el proyecto web](/documentacion/add_remove.PNG)
+![como añadir el proyecto web](/documentacion/add_remove.png)
 Después de añadirlo y publicar, para acceder a la página pondremos en nuestro navegador el siguiente [enlace](http://localhost:8080/SuperAnime-We/index.jsp).
 Al cargar la página ya se habrán creado las tablas en la bbdd anterionmente creada con lo que para tener acceso a la página recomiendo insertar el siguiente [script](/documentacion/script.sql) de la bbdd el cual inserta un juego de datos.
 
