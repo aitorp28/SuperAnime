@@ -52,7 +52,7 @@ Al cargar la página ya se habrán creado las tablas en la bbdd anterionmente cr
 Para realizar la instalación de la API REST debemos abrir el IDE de Spring Tool Suit 4 e importar el proyecto siguiendo los mismo pasos realizados. Una vez realizado esto importaremos el proyecto de SuperAnime-web-rest de la misma manera.
 Una vez realizado esto debemos hace el haz and remove del proyecto web REST e iniciar el royecto rest en el boot dashboard
 ![add and remove web REST](/documentacion/add_remove_rest.PNG)
-![dashboard REST](/documentacion/dashboard.PNG)
+![dashboard REST](/documentacion/dashboard.png)
 
 Para terminar accederemos a la siguiente [URL](http://localhost:8080/SuperAnime-web-rest/tabla_animes.jsp) para visualizar la web.
 En caso de querer ver la documentación de la REST click en el siguiente [enlace](http://localhost:8081/swagger-ui/index.html)
