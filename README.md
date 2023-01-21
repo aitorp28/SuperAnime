@@ -39,8 +39,19 @@ Disponemos de dos tablas con una relación 1:N las cuales son Animes y Productor
 
 ## Instalación
 
-Antes de realizar está instalación es necesario tener instalado los entornos de desarrollo de [Eclipse](https://www.eclipse.org/downloads/)  y [Spring Tool Suit 4](https://spring.io/tools) , tener [XAMPP](https://www.apachefriends.org/es/download.html) y clickar en start en el apartado de MySQL o alguna otra aplicación que active la conexión con la bbdd y crear la bbdd con el nombre de superanime e tener el [Tomcat 9.0](https://tomcat.apache.org/download-90.cgi) el cual va ha ser el servidor.Para poder iniciar esta aplicación hay que entrar desde a [github](https://github.com/aitorp28/SuperAnime) 
+Antes de realizar está instalación es necesario tener instalado los entornos de desarrollo de [Eclipse](https://www.eclipse.org/downloads/)  y [Spring Tool Suit 4](https://spring.io/tools) , tener [XAMPP](https://www.apachefriends.org/es/download.html) y clickar en start en el apartado de MySQL (en caso de no saber como hacerlo consulta este [enlace](https://www.ionos.es/digitalguide/servidores/herramientas/instala-tu-servidor-local-xampp-en-unos-pocos-pasos/)) crear la bbdd con el nombre de superanime(en caso de duda consulte el siguiente [enlance](https://kb.iweb.com/hc/es/articles/230246688-Cómo-crear-bases-de-datos-en-phpMyAdmin)) y tener el [Tomcat 9.0](https://tomcat.apache.org/download-90.cgi) el cual va ha ser el servidor.Para poder iniciar esta aplicación hay que entrar desde a [github](https://github.com/aitorp28/SuperAnime) 
 ![como descargar desde github](/documentacion/github_download.PNG)
-Una vez descargado el zip, hay que descompromirlo y dentro de eclipse importar el proyecto File>Import>Maven Project>../SuperAnime-Model
+Una vez descargado el zip, hay que descomprimirlo y dentro de eclipse importar el proyecto: File>Import>Maven Project>../SuperAnime-Model
 Al haber terminado de importar hay que hacer click derecho en la raíz del proyecto>Run As>Maven Install.
-Tras terminarlo podemos importar el proyecto de Superanime-Web añadimos el proyecto al Tomcat, iniciamos el proyecto y publicamos mediante el siguiente [enlace](http://localhost:8080/SuperAnime-We/index.jsp)  
+![como realizar el Maven install](/documentacion/maven_install.PNG)
+Tras terminarlo podemos importar el proyecto de Superanime-Web siguiendo los pasos mencionados en el SuperAnime-Model. Al importarlo tenemos que añadirlo en el tomcat (en caso de duda es recomendable seguir [este](https://jesusfernandeztoledo.com/instalar-eclipse-e-incluir-tomcat-en-eclipse/) tutorial pero en nuestro caso con la versión 9.0 de Tomcat)
+![como añadir el proyecto web](/documentacion/add_remove.PNG)
+Después de añadirlo y publicar, para acceder a la página pondremos en nuestro navegador el siguiente [enlace](http://localhost:8080/SuperAnime-We/index.jsp).
+Al cargar la página ya se habrán creado las tablas en la bbdd anterionmente creada con lo que para tener acceso a la página recomiendo insertar el siguiente [script](/documentacion/script.sql) de la bbdd el cual inserta un juego de datos.
+
+Para realizar la instalación de la API REST debemos abrir el IDE de Spring Tool Suit 4 e importar el proyecto siguiendo los mismo pasos realizados. Una vez realizado esto importaremos el proyecto de SuperAnime-web-rest de la misma manera.
+Una vez realizado esto debemos hace el haz and remove del proyecto web REST e iniciar el royecto rest en el boot dashboard
+![add and remove web REST](/documentacion/add_remove_rest.PNG)
+![dashboard REST](/documentacion/add_remove_rest.PNG)
+Para terminar accederemos a la siguiente [URL](http://localhost:8080/SuperAnime-web-rest/tabla_animes.jsp) para visualizar la web.
+En caso de querer ver la documentación de la REST click en el siguiente [enlace](http://localhost:8081/swagger-ui/index.html)
