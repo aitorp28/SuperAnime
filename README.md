@@ -2,11 +2,11 @@
 Este proyecto está enfocado a crear una web que muestra a los usuarios la mayor parte de los animes existentes y la posibilidad de  añadir nuevos. Además de esto podrán ver información más detallada sobre ellos.
 
 ## Tecnologías usadas
-Para llevar a cabo este proyecto se han utilizado las siguientes tecnologías: JavaScript, Boostrap, JSP, HTML5, CSS, Servlet, Java, Spring Boot y API REST. Todo esto se ha realizado en el entorno de desarrollo de Eclipse y Spring Tool Suite 4.
+Para llevar a cabo este proyecto se han utilizado las siguientes tecnologías: JavaScript, Boostrap 5, JSP, HTML5, CSS, Servlet, Java, Spring Boot y API REST. Todo esto se ha realizado en el entorno de desarrollo de Eclipse y Spring Tool Suite 4.
 
-Tecnologias usadas en el apartado de vista hemos usado javaScript para dar funcionalidad a ciertos botones para lanzar un formulario ademas de aplicar css con ello
-tambien usamos jquery para crear un carousel de imagenes en el apartado de inicio. Estas dos tecnologias an sido usadas para facilitar todo el trabajo en el apartado visual
-y este sea mas dinamico
+Tecnologías usadas en el apartado de vista hemos usado javaScript para dar funcionalidad a ciertos botones para lanzar un formulario además de aplicar css con ello, también usamos jquery para crear un carrusel de imágenes en el apartado de inicio. Estas dos tecnologías han sido usadas para facilitar todo el trabajo en el apartado visual y este sea más dinámico.
+
+Para un mejor funcionamiento de la página y menor peso del proyecto, las imágenes son cargadas por url a un servidor externo, ya sea a un contenedor de imágenes o un servidor propio.
 
 ## Proyectos
 
@@ -14,14 +14,17 @@ y este sea mas dinamico
 
 El Superanime-Modelo es donde se crean las entidades de Usuario, Anime y Productora y se generan los diferentes métodos CRUD en el DAO.
 
+De esta manera facilitando el funcionamiento de la página haciendo llamadas a métodos contenidos en el proyecto previamente dicho.
+
 ### Superanime-Rest
-El Superanime-Modelo es el proyecto que se cean los diferentes métodos que llaman al DAO del Superanime-Modelo mediante la capa de Service el cual puede ser usado por terceras empresas.
+El Superanime-Rest es el proyecto que se cean los diferentes métodos que llaman al DAO del Superanime-Rest mediante la capa de Service el cual puede ser usado por terceras empresas. Facilitando así la consumación de datos para terceros.
 
 ### Superanime-Web
-Superanime-Web es la parte front del proyecto, tiene las páginas y los controladores los cuales enlazan la web con la capa Modelo para realizar el acceso a los datos
+Superanime-Web es la parte visual del proyecto, tiene las páginas y los controladores los cuales enlazan la web con la capa Modelo para realizar el acceso a los datos haciendo esto de una manera mas dinámica y a su vez facilitando al usuario cualquier gestión de la información en un apartado comodo, gráfico y sencillo.
 
 ### Superanime-Web-Rest
-Superanime-Web-Rest es similar a Superanime-Web pero con la diferencia que en vez de realizar la conexión con la capa de Modelo hace conexión con la capa de Superanime-Rest.
+Superanime-Web-Rest es similar a Superanime-Web pero con la diferencia que en vez de realizar la conexión con la capa de Modelo hace conexión con la capa de Superanime-Rest de esta manera consume la información gestionada por el proyecto previamente mencionado(Superanime-Rest).
+
 
 ## Configuración bbdd
 
